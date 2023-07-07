@@ -1,0 +1,35 @@
+@import "variables";
+
+//MEDIA
+@mixin mobile-width {
+  @media screen and (max-width: $mobile-width) {
+    @content;
+  }
+}
+@mixin desktop-width {
+  @media screen and (min-width: $desktop-width) {
+    @content;
+  }
+}
+
+//BACKGROUNDS
+@mixin BackgroundImage {
+  background-color: transparent;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  @content;
+}
+
+//TEXT
+@mixin MainTitle {
+  font-family: $main-font;
+
+  @include mobile-width {
+
+  }
+
+  @include desktop-width {
+
+  }
+}

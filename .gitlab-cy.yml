@@ -1,0 +1,120 @@
+# This file is a template, and might need editing before it works on your project.
+# This is a sample GitLab CI/CD configuration file that should run without any modifications.
+# It demonstrates a basic 3 stage CI/CD pipeline. Instead of real tests or scripts,
+# it uses echo commands to simulate the pipeline execution.
+#
+# A pipeline is composed of independent jobs that run scripts, grouped into stages.
+# Stages run in sequential order, but jobs within stages run in parallel.
+#
+# For more information, see: https://docs.gitlab.com/ee/ci/yaml/index.html#stages
+#
+# You can copy and paste this template into a new `.gitlab-ci.yml` file.
+# You should not add this template to an existing `.gitlab-ci.yml` file by using the `include:` keyword.
+#
+# To contribute improvements to CI/CD templates, please follow the Development guide at:
+# https://docs.gitlab.com/ee/development/cicd/templates.html
+# This specific template is located at:
+# https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Getting-Started.gitlab-ci.yml
+
+stages:
+  - test # Этап для подключения unit-tests.
+  - build # Этап сборки докер образа и пуша его в gitlab-registry.
+  - deploy # Этап деплоя и развёртывания на 117 сервере.
+
+run_unit_tests:
+  stage: test
+  tags:
+    # Здесь указывается тэг, который будет отслеживать gitlab runner, который пока что находится на 117 сервере.
+    - bca-frontend-sobank-build
+  before_script:
+  script:
+    - echo "TEST STAGE!"
+
+build_docker:
+  stage: build
+  variables:
+    # Передаём переменную в которой лежит следующий формата "feature-onb-5517------pipeline-v3-build".
+    IMAGE_TAG: "${CI_COMMIT_REF_SLUG}-build"
+  before_script: &docker_push_login
+    # Подключаемся к gitlab registry перед выполнением всего что написано в "script".
+    - sudo docker login gitlab.x-lab.com.ru:5050 -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
+  tags:
+    # Прокидываем тэг, который триггерит gitlab runner выполнить Job'у.
+    - bca-frontend-sobank-build
+  script:
+    - echo "BUILD STAGE!"
+    # Билдим образ докера на ветке, в которую прилетел коммит.
+    # Имя образа выглядит в след формате:
+    # "gitlab.x-lab.com.ru:5050/ca-actual-projects/ca-form:feature-onb-5517------pipeline-v3-build".
+    - sudo docker build -t $CI_REGISTRY_IMAGE:$IMAGE_TAG .
+    # Пушим образ в gitlab registry
+    - sudo docker push $CI_REGISTRY_IMAGE:$IMAGE_TAG
+  rules:
+    # Делаем всё это ТОЛЬКО если ветка попадает под регулярное выражение.
+    - if: '$CI_COMMIT_BRANCH =~ /^feature\/ONB-\d+_.*$/'
+
+branch-test-deploy:
+  stage: deploy
+  variables:
+    # Передаём переменную в которой лежит следующий формата "feature-onb-5517------pipeline-v3-build".
+    # Здесь она нужна для того, чтобы задеплоить тот же образ, что мы билдили ранее.
+    IMAGE_TAG: "${CI_COMMIT_REF_SLUG}-build"
+    # Передаём переменную окружения, которая дальше прокинется в docker-compose.
+    # Также с помощью этой переменной определим какой .env файл нам брать.
+    ENVIRONMENT: "test"
+  before_script: &docker_pull_login
+    # Подключаемся к gitlab registry перед выполнением всего что написано в "script".
+    - sudo docker login gitlab.x-lab.com.ru:5050 -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
+  tags:
+    # Прокидываем тэг, который триггерит gitlab runner выполнить Job'у.
+    - bca-frontend-sobank-deploy
+  script:
+    - sudo echo "Deploy docker for testers"
+    # Подтягиваем образ докера из gitlab registry к нашему gitlab runner.
+    - sudo docker pull $CI_REGISTRY_IMAGE:$IMAGE_TAG
+    # Принудительно ПЕРЕПОДНИМАЕМ сервис ca-form из нашего docker-compose.
+    # Здесь же указываем какой .env Файл мы будем использовать.
+    # Указываем путь до файла docker-compose.yml
+    # Флаг --force-recreate УБИВАЕТ старый запущенный докер с этим именем и поднимает новый.
+    - sudo echo "Pull Success!!"
+    - sudo ENVIRONMENT=test docker-compose -f /home/frontend/docker-compose.yml up -d --force-recreate bca-frontend-sobank
+    # Этот этап запускается только после нажатия на кнопку "play" в pipeline описания MR'a
+  when: manual
+  rules:
+    # Pipeline инициализируется только в случае, если коммит есть в ветку feature
+    - if: '$CI_COMMIT_BRANCH =~ /^feature\/ONB-\d+_.*$/'
+
+branch-develop-deploy:
+  stage: deploy
+  variables:
+    # Передаём переменную в которой лежит следующий формата "feature-onb-5517------pipeline-v3-build".
+    # Здесь она нужна для того, чтобы задеплоить тот же образ, что мы билдили ранее.
+    IMAGE_TAG: "${CI_COMMIT_REF_SLUG}-build"
+    # Передаём переменную окружения, которая дальше прокинется в docker-compose.
+    # Также с помощью этой переменной определим какой .env файл нам брать.
+    ENVIRONMENT: "develop"
+  before_script: &docker_pull_login
+    # Подключаемся к gitlab registry перед выполнением всего что написано в "script".
+    - sudo docker login gitlab.x-lab.com.ru:5050 -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
+  tags:
+    # Прокидываем тэг, который триггерит gitlab runner выполнить Job'у.
+    - bca-frontend-sobank-deploy
+  script:
+    - sudo echo "Deploy docker for developers"
+    # Подтягиваем образ докера из gitlab registry к нашему gitlab runner.
+    - sudo docker pull $CI_REGISTRY_IMAGE:$IMAGE_TAG
+    # Принудительно ПЕРЕПОДНИМАЕМ сервис ca-form из нашего docker-compose.
+    # Здесь же указываем какой .env Файл мы будем использовать.
+    # Указываем путь до файла docker-compose.yml
+    # Флаг --force-recreate УБИВАЕТ старый запущенный докер с этим именем и поднимает новый.
+    - sudo ENVIRONMENT=test docker-compose -f /home/frontend/docker-compose.yml up -d --force-recreate bca-frontend-sobank
+    # Этот этап запускается только после нажатия на кнопку "play" в pipeline описания MR'a
+  when: manual
+  rules:
+    # Pipeline инициализируется только в случае, если коммит есть в ветку develop
+    - if: '$CI_COMMIT_BRANCH == "develop"'
+
+# TO DO: Привязаться к созданию МР.
+# - echo "$ENVIRONMENT"
+#     - sudo echo "$CI_REGISTRY_IMAGE:$IMAGE_TAG"
+#     - sudo echo "$CI_MERGE_REQUEST_APPROVALS"

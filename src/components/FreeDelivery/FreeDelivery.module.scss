@@ -1,0 +1,17 @@
+@import "../../styles/mixins";
+
+.freeDelivery {
+
+}
+
+@include mobile-width {
+  .freeDelivery {
+
+  }
+}
+
+@include desktop-width {
+  .freeDelivery {
+
+  }
+}

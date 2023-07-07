@@ -1,0 +1,81 @@
+@import "../../styles/mixins";
+
+.banner {
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.imgContainer {
+  position: absolute;
+}
+
+.btnSubmit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: $main-orange-color;
+
+  border-radius: 5px;
+}
+
+@include mobile-width {
+  .banner {
+    padding: 20px 16px 16px;
+
+    height: 269px;
+
+    background-image: linear-gradient(143deg, #FA614A 0%, rgba(250, 97, 74, 0.50) 100%);
+  }
+
+  .content {
+    gap: 12px;
+
+    &__title {
+      font-size: 24px;
+      font-weight: 550;
+      line-height: normal;
+      white-space: pre-wrap;
+    }
+
+    &__subtitle {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: normal;
+      white-space: pre-wrap;
+    }
+  }
+
+  .imgContainer {
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 305px;
+
+    background-image: linear-gradient(180deg, rgba(196, 196, 196, 0.00) 64.18%, #FFF 89.06%);
+  }
+
+  .btnSubmit {
+    margin-top: auto;
+
+    width: 100%;
+    height: 48px;
+
+    font-size: 20px;
+
+    z-index: 2;
+  }
+}
+
+@include desktop-width {
+  .banner {
+
+  }
+}

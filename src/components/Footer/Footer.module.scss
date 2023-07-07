@@ -1,0 +1,17 @@
+@import "../../styles/mixins";
+
+.footer {
+
+}
+
+@include mobile-width {
+  .footer {
+    padding: 16px 20px 20px;
+  }
+}
+
+@include desktop-width {
+  .footer {
+
+  }
+}

@@ -1,0 +1,29 @@
+@import "../../styles/mixins";
+
+.header {
+  background-color: $white;
+}
+
+@include mobile-width {
+  .header {
+    padding: 16px 20px;
+
+    &__btnLogo {
+      width: 77px;
+      height: 28px;
+
+      border: none;
+      outline: none;
+
+      @include BackgroundImage {
+        background-image: url("../../assets/Header/headerLogoSobank_mobile.svg");
+      }
+    }
+  }
+}
+
+@include desktop-width {
+  .header {
+
+  }
+}

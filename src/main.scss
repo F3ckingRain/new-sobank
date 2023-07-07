@@ -1,0 +1,40 @@
+/*@font-face {*/
+/*  font-family: 'Inter';*/
+/*  src: local('Inter'),*/
+/*  url('./assets/fonts/Inter-VariableFont_slnt,wght.ttf') format('truetype');*/
+/*  font-style: normal;*/
+/*}*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: auto;
+
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+
+  outline: none;
+}
+
+button,
+img,
+input,
+textarea,
+a {
+  outline: none;
+  border: none;
+}

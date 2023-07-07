@@ -1,0 +1,5 @@
+node_modules
+**/public
+Dockerfile
+yarn.lock
+yarn-error.log
