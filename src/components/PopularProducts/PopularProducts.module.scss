@@ -1,0 +1,81 @@
+@import "../../styles/mixins";
+
+.popularProducts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  &__title {
+    @include BlockTitle;
+  }
+}
+
+.cardItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  border-radius: 5px;
+
+  background-color: $gray-background;
+  background-image: var(--legacy, linear-gradient(180deg, #F8F8F8 0%, #FFF 36.46%));
+  filter: drop-shadow(5px 5px 5px rgba(38, 53, 104, 0.25));
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  white-space: pre-wrap;
+
+  &__title {
+    @include ContentTitle;
+  }
+
+  &__subtitle {
+    @include ContentSubtitle;
+  }
+}
+
+@include mobile-width {
+  .popularProducts {
+    margin-top: 24px;
+
+    gap: 12px;
+  }
+
+  .cardItem {
+    padding: 12px 8px 8px;
+
+    min-width: 84px;
+
+    gap: 16px;
+
+    &__image {
+      max-height: 31px;
+      min-height: 31px;
+    }
+  }
+
+  .content {
+    gap: 4px;
+  }
+}
+
+@include desktop-width {
+  .popularProducts {
+    margin-top: 160px;
+
+    gap: 24px;
+  }
+
+  .cardItem {
+    border: 0.5px solid rgba(0, 0, 0, 0.05);
+
+    &__image {
+      max-height: 54px;
+      min-height: 54px;
+    }
+  }
+}

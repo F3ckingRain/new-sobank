@@ -1,0 +1,29 @@
+@import "../../styles/mixins";
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  &__title {
+    @include ContentTitle;
+  }
+
+  &__subtitle {
+    @include ContentSubtitle;
+  }
+}
+
+@include mobile-width {
+  .contacts {
+    margin-top: 16px;
+
+    gap: 4px;
+  }
+}
+
+@include desktop-width {
+  .contacts {
+
+  }
+}

@@ -9,6 +9,14 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
+  &__title {
+    @include MainTitle;
+  }
+
+  &__subtitle {
+    @include MainSubtitle;
+  }
 }
 
 .imgContainer {
@@ -38,16 +46,10 @@
     gap: 12px;
 
     &__title {
-      font-size: 24px;
-      font-weight: 550;
-      line-height: normal;
       white-space: pre-wrap;
     }
 
     &__subtitle {
-      font-size: 18px;
-      font-weight: 400;
-      line-height: normal;
       white-space: pre-wrap;
     }
   }
@@ -60,15 +62,14 @@
     height: 305px;
 
     background-image: linear-gradient(180deg, rgba(196, 196, 196, 0.00) 64.18%, #FFF 89.06%);
+
+    &__img {
+      position: absolute;
+    }
   }
 
   .btnSubmit {
     margin-top: auto;
-
-    width: 100%;
-    height: 48px;
-
-    font-size: 20px;
 
     z-index: 2;
   }

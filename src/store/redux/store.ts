@@ -1,5 +1,7 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 
+import configReducer from '../reducers/ConfigSlice/ConfigSlice';
+import creditParamsReducer from '../reducers/CreditParamsSlice/CreditParamsSlice';
 import modalReducer from '../reducers/ModalSlice/ModalSlice';
 import userReducer from '../reducers/UserSlice/UserSlice';
 
@@ -10,6 +12,8 @@ const rootReducer = combineReducers({
   [AuthApi.reducerPath]: AuthApi.reducer,
   userReducer,
   modalReducer,
+  creditParamsReducer,
+  configReducer,
 });
 
 const setupStore = () =>

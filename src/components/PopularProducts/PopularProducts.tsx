@@ -1,5 +1,7 @@
 import React, { FC } from 'react';
 
+import styles from './PopularProducts.module.scss';
+
 import ScrollContainer from '@/containers/ScrollContainer/ScrollContainer';
 
 interface ProductCard {
@@ -8,17 +10,17 @@ interface ProductCard {
   image: string;
 }
 const ProductCardItem: FC<ProductCard> = ({ title, image, subtitle }) => (
-  <div>
-    <img src={image} alt="" />
-    <div>
-      <div>{title}</div>
-      <div>{subtitle}</div>
+  <div className={styles.cardItem}>
+    <img className={styles.cardItem__image} src={image} alt="" />
+    <div className={styles.content}>
+      <div className={styles.content__title}>{title}</div>
+      <div className={styles.content__subtitle}>{subtitle}</div>
     </div>
   </div>
 );
 const PopularProducts: FC<{ list: ProductCard[] }> = ({ list }) => (
-  <div>
-    <div>title</div>
+  <div className={styles.popularProducts}>
+    <div className={styles.popularProducts__title}>Популярные продукты</div>
     <ScrollContainer>
       {list.map((el, index) => (
         <ProductCardItem {...el} key={`${el.title}_${index + 1}`} />

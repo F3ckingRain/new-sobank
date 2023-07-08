@@ -14,7 +14,7 @@ const HomePage = () => {
   return (
     <>
       <Wrapper style={{ padding: 0 }}>
-        <Banner {...bannerProps} />
+        <Banner {...bannerProps} imageStyle={{ right: 3, bottom: 35 }} />
       </Wrapper>
 
       {!!loanProps.popularProducts && (
@@ -25,7 +25,7 @@ const HomePage = () => {
 
       {!!loanProps.freeDelivery && (
         <Wrapper>
-          <FreeDelivery />
+          <FreeDelivery list={loanProps.freeDelivery} />
         </Wrapper>
       )}
     </>

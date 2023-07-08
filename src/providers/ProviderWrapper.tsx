@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
-import ConfigProvider from '@/provider/ConfigProvider/ConfigProvider';
+import ConfigProvider from '@/providers/ConfigProvider';
 import store from '@/store/redux/store';
 
 interface Provider {

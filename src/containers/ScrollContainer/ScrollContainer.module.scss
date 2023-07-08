@@ -1,7 +1,7 @@
 @import "../../styles/mixins";
 
 .scrollContainer {
-  padding-bottom: 5px;
+  padding-bottom: 10px;
 
   display: flex;
   flex-direction: row;
@@ -10,6 +10,8 @@
 
   overflow-x: auto;
   overflow-y: hidden;
+
+  @include ScrollBar;
 }
 
 @include mobile-width {

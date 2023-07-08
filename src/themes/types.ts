@@ -16,10 +16,18 @@ export type BannerProps = {
 export type LoanProps = {
   advantages?: {};
   popularProducts?: { title: string; subtitle: string; image: string }[];
-  freeDelivery?: {};
+  freeDelivery?: string[];
 };
 
-export type FooterProps = {};
+export interface SocialsProps {
+  title: string;
+  subtitle: string;
+  links: { name: string; link: string; image: string }[];
+}
+
+export type FooterProps = {
+  socials: SocialsProps;
+};
 
 export type LandingType = {
   banner: DomainProps<ProductProps<BannerProps>>;

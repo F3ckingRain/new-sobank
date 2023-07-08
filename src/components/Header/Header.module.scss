@@ -2,10 +2,19 @@
 
 .header {
   background-color: $white;
+
+  z-index: 10;
 }
 
 @include mobile-width {
   .header {
+    position: fixed;
+    top: 0;
+
+    box-sizing: border-box;
+
+    width: 100%;
+
     padding: 16px 20px;
 
     &__btnLogo {

@@ -1,12 +1,29 @@
 @import "../../styles/mixins";
 
 .footer {
+  box-shadow: 0 2px 5px 0 rgba(38, 53, 104, 0.25);
+}
+
+.accordions {
+
+}
+
+.copyright {
 
 }
 
 @include mobile-width {
   .footer {
-    padding: 16px 20px 20px;
+    margin-top: 40px;
+    padding: 16px 0 20px;
+  }
+
+  .accordions {
+    margin-top: 20px;
+  }
+
+  .copyright {
+    margin-top: 12px;
   }
 }
 
