@@ -80,7 +80,15 @@
 
 .content {
 
+  &__changePhoneBtn {
+    margin-top: 20px;
 
+    background-color: transparent;
+
+    text-align: start;
+    font-family: $support-font;
+    color: $light-blue-color;
+  }
 }
 
 @include mobile-width {
@@ -97,6 +105,10 @@
         font-size: 15px;
         font-weight: 500;
       }
+    }
+
+    &__changingPhoneBtn {
+      font-size: 13px;
     }
   }
 }
@@ -122,6 +134,10 @@
         font-size: 24px;
         font-weight: 500;
       }
+    }
+
+    &__changingPhoneBtn {
+      font-size: inherit;
     }
   }
 }

@@ -18,8 +18,21 @@ export const userSlice = createSlice({
     setSendingSms(state, { payload }: PayloadAction<boolean>) {
       state.sendingSmsCode = payload;
     },
+    setChangingPhone(state, { payload }: PayloadAction<boolean | undefined>) {
+      state.changingPhone = payload;
+    },
+    setAutologinToken(state, { payload }: PayloadAction<string>) {
+      state.autologinToken = payload;
+    },
   },
 });
 
-export const { setCode, setPhoneNumber, setIsAuth, setSendingSms } = userSlice.actions;
+export const {
+  setCode,
+  setPhoneNumber,
+  setAutologinToken,
+  setIsAuth,
+  setChangingPhone,
+  setSendingSms,
+} = userSlice.actions;
 export default userSlice.reducer;

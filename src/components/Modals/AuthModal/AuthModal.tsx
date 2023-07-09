@@ -9,16 +9,19 @@ import useAppDispatch from '@/hooks/useAppDispatch';
 import useAppSelector from '@/hooks/useAppSelector';
 import useNavigateWithParams from '@/hooks/useNavigateWithParams';
 import { closeModal } from '@/store/reducers/ModalSlice/ModalSlice';
-import { setPhoneNumber, setSendingSms } from '@/store/reducers/UserSlice/UserSlice';
+import { setSendingSms } from '@/store/reducers/UserSlice/UserSlice';
 
 const AuthModal = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigateWithParams();
 
   const modal = useAppSelector(state => state.modalReducer);
-  const { sendingSmsCode } = useAppSelector(state => state.userReducer);
+  const { sendingSmsCode, changingPhone, autologinToken } = useAppSelector(
+    state => state.userReducer,
+  );
 
   const isAuthModalOpened = modal.opened && modal.name === 'auth-modal';
+  const showChangePhone = !autologinToken && sendingSmsCode && !changingPhone;
 
   const closeModalHandler = () => {
     dispatch(closeModal());
@@ -49,7 +52,17 @@ const AuthModal = () => {
         <button className={styles.closeBtn} type="button" onClick={closeModalHandler} />
         <div className={styles.authModal__content}>
           <div className={styles.content__phoneTitle}>Укажите ваш номер телефона</div>
-          <PhoneInput />
+          <PhoneInput disabled={changingPhone === false} />
+          {showChangePhone && (
+            <button className={styles.content__changePhoneBtn} type="button">
+              Изменить номер телефона
+            </button>
+          )}
+          {!!autologinToken && (
+            <button className={styles.autologinBtn} type="button">
+              Войти
+            </button>
+          )}
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import FormInput from '@/components/Inputs/FormInput';
 import { SendSms } from '@/features/AuthFeature';
@@ -6,7 +6,10 @@ import useAppDispatch from '@/hooks/useAppDispatch';
 import useAppSelector from '@/hooks/useAppSelector';
 import { resetMask, validatePhone } from '@/utils/validation';
 
-const PhoneInput = () => {
+interface PhoneInputProps {
+  disabled: boolean;
+}
+const PhoneInput: FC<PhoneInputProps> = ({ disabled }) => {
   const dispatch = useAppDispatch();
 
   const { phoneNumber } = useAppSelector(state => state.userReducer);
@@ -28,6 +31,7 @@ const PhoneInput = () => {
       onInput={inputHandler}
       validator={validatePhone}
       containerInputStyle={{ marginTop: 20 }}
+      disabled={disabled}
     />
   );
 };

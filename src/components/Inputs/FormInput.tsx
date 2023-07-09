@@ -23,7 +23,7 @@ interface FormInputProps {
   autoFocus?: boolean;
   minLength?: number;
   autoComplete?: string;
-  disabled?: string;
+  disabled?: boolean;
 }
 const FormInput: FC<FormInputProps> = ({
   label,
@@ -58,7 +58,6 @@ const FormInput: FC<FormInputProps> = ({
   };
 
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
     if (validator) {
       return setInputValue(validator(e.target.value));
     }
@@ -87,6 +86,7 @@ const FormInput: FC<FormInputProps> = ({
           minLength={minLength}
           alwaysShowMask
           style={inputStyle}
+          readOnly={disabled}
         />
       ) : (
         <input
@@ -94,6 +94,7 @@ const FormInput: FC<FormInputProps> = ({
           value={inputValue}
           onInput={inputHandler}
           style={inputStyle}
+          readOnly={disabled}
         />
       )}
       {status === false && required && errorMessage && <div>{errorMessage}</div>}

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
+import { GetAutologinData } from '@/features/AuthFeature';
 import useAppDispatch from '@/hooks/useAppDispatch';
-import { GetAutologinData } from '@/store/actions/AuthActions/AuthActions';
 
 const OAutoLogin = () => {
   const dispatch = useAppDispatch();
