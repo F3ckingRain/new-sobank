@@ -27,11 +27,11 @@ export type AutologinRequest = {
 
 export type CodeConfirmRequest = {
   code: string;
-  phone: string | undefined;
+  phone: string;
 };
 
 export type AutologinCodeConfirmRequest = {
   code: string;
-  phone: string | undefined;
-  token: string | null;
+  phone: string;
+  token: string;
 };

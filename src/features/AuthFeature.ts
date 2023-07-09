@@ -1,8 +1,7 @@
 import Cookies from 'js-cookie';
 
 import { AuthApi } from '@/api/AuthApi/AuthApi';
-import useAppDispatch from '@/hooks/useAppDispatch';
-import useAppSelector from '@/hooks/useAppSelector';
+import { CodeConfirmRequest } from '@/api/AuthApi/types';
 import { NavigateType } from '@/hooks/useNavigateWithParams';
 import { setModal } from '@/store/reducers/ModalSlice/ModalSlice';
 import {
@@ -20,12 +19,14 @@ export const OpenAuthModal =
   (navigate: NavigateType, path = 'user/credit/credit_params_info') =>
   (dispatch: AppDispatch, getState: AppStore['getState']) => {
     const { isAuth } = getState().userReducer;
+
     if (!isAuth) return dispatch(setModal({ name: 'auth-modal', opened: true }));
+
     return navigate(path);
   };
 
 export const SendSms = (phone: string) => (dispatch: AppDispatch) => {
-  dispatch(AuthApi.endpoints.sign_in.initiate({ phone }))
+  dispatch(AuthApi.endpoints.signIn.initiate({ phone }))
     .unwrap()
     .then(() => {
       dispatch(setSendingSms(true));
@@ -33,7 +34,7 @@ export const SendSms = (phone: string) => (dispatch: AppDispatch) => {
     })
     .catch(err => {
       if (err.status === 404)
-        dispatch(AuthApi.endpoints.sign_up.initiate({ phone }))
+        dispatch(AuthApi.endpoints.signUp.initiate({ phone }))
           .unwrap()
           .then(() => {
             dispatch(setSendingSms(true));
@@ -43,14 +44,17 @@ export const SendSms = (phone: string) => (dispatch: AppDispatch) => {
     });
 };
 
-export const ConfirmCode = (code: string, phone: string) => (dispatch: AppDispatch) => {
-  dispatch(AuthApi.endpoints.confirm.initiate({ phone, code })).then(res => {
-    console.log(res);
-    // Cookies.set('Bearer', res);
-    dispatch(setPhoneNumber(phone));
-    dispatch(setIsAuth(true));
-  });
-};
+export const ConfirmCode =
+  ({ code, phone }: CodeConfirmRequest) =>
+  (dispatch: AppDispatch) => {
+    dispatch(AuthApi.endpoints.confirm.initiate({ phone, code }))
+      .unwrap()
+      .then(res => {
+        Cookies.set('Bearer', res.token);
+        dispatch(setPhoneNumber(phone));
+        dispatch(setIsAuth(true));
+      });
+  };
 
 export const GetAutologinData =
   () => (dispatch: AppDispatch, getState: AppStore['getState']) => {
@@ -59,7 +63,7 @@ export const GetAutologinData =
 
     if (isAuth || !token || phoneNumber) return;
 
-    dispatch(AuthApi.endpoints.get_autologin_data.initiate({ token }))
+    dispatch(AuthApi.endpoints.getAutologinData.initiate({ token }))
       .unwrap()
       .then(res => {
         dispatch(setAutologinToken(token));
@@ -74,3 +78,23 @@ export const GetAutologinData =
         }
       });
   };
+
+export const ConfirmAutologinCode =
+  () => (dispatch: AppDispatch, getState: AppStore['getState']) => {
+    const { phoneNumber, code, autologinToken } = getState().userReducer;
+
+    dispatch(
+      AuthApi.endpoints.confirmAutologin.initiate({
+        phone: phoneNumber,
+        code,
+        token: autologinToken as string,
+      }),
+    )
+      .unwrap()
+      .then(res => {
+        Cookies.set('Bearer', res.token);
+        dispatch(setIsAuth(true));
+      });
+  };
+
+export const ChangePhoneNumber = () => (dispatch: AppDispatch) => {};

@@ -1,4 +1,5 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { setupListeners } from '@reduxjs/toolkit/query';
 
 import configReducer from '../reducers/ConfigSlice/ConfigSlice';
 import creditParamsReducer from '../reducers/CreditParamsSlice/CreditParamsSlice';
@@ -31,4 +32,5 @@ export type AppDispatch = AppStore['dispatch'];
 
 const store = setupStore();
 
+setupListeners(store.dispatch);
 export default store;

@@ -17,7 +17,7 @@ const initialState: UserType = {
   code: '',
   sendingSmsCode: false,
   changingPhone: undefined,
-  autologinToken: getTokenFromUrl(),
+  autologinToken: undefined,
 };
 
 export default initialState;

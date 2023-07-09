@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import Cookies from 'js-cookie';
 
 import {
@@ -31,7 +31,7 @@ export const AuthApi = createApi({
   tagTypes: ['Auth'],
 
   endpoints: build => ({
-    sign_in: build.mutation<AuthResponse, AuthSignInRequest>({
+    signIn: build.mutation<AuthResponse, AuthSignInRequest>({
       query: ({ phone }) => ({
         method: 'POST',
         url: 'sign-in',
@@ -41,7 +41,7 @@ export const AuthApi = createApi({
       }),
     }),
 
-    sign_up: build.mutation<AuthResponse, AuthSignUpRequest>({
+    signUp: build.mutation<AuthResponse, AuthSignUpRequest>({
       query: ({ phone }) => ({
         method: 'POST',
         url: 'sign-up',
@@ -51,12 +51,13 @@ export const AuthApi = createApi({
       }),
     }),
 
-    get_autologin_data: build.query<AutologinResponse, AutologinRequest>({
+    getAutologinData: build.query<AutologinResponse, AutologinRequest>({
       query: ({ token }) => ({
         method: 'GET',
         url: `get_autologin_data`,
         params: { autologin_token: token },
       }),
+      providesTags: ['Auth'],
     }),
 
     confirm: build.mutation<AuthTokenResponse, CodeConfirmRequest>({
@@ -70,7 +71,7 @@ export const AuthApi = createApi({
       }),
     }),
 
-    confirm_autologin: build.mutation<AuthTokenResponse, AutologinCodeConfirmRequest>({
+    confirmAutologin: build.mutation<AuthTokenResponse, AutologinCodeConfirmRequest>({
       query: ({ token, code, phone }) => ({
         method: 'POST',
         url: 'confirm_autologin',
@@ -79,6 +80,14 @@ export const AuthApi = createApi({
           code,
           token,
         },
+      }),
+    }),
+
+    changePhone: build.mutation({
+      query: () => ({
+        method: 'POST',
+        url: '',
+        body: {},
       }),
     }),
   }),

@@ -5,11 +5,12 @@ import useAppDispatch from '@/hooks/useAppDispatch';
 
 const OAutoLogin = () => {
   const dispatch = useAppDispatch();
-  const utm = window.location.search;
+
+  const { search } = window.location;
 
   useEffect(() => {
     dispatch(GetAutologinData());
-  }, [utm]);
+  }, [search]);
 
   return <div style={{ display: 'none' }} />;
 };
