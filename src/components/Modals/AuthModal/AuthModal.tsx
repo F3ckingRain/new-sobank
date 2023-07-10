@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import clsx from 'clsx';
 
@@ -12,22 +12,26 @@ import useAppSelector from '@/hooks/useAppSelector';
 import useNavigateWithParams from '@/hooks/useNavigateWithParams';
 import { useTimer } from '@/hooks/useTimer';
 import { closeModal } from '@/store/reducers/ModalSlice/ModalSlice';
-import { setSendingSms } from '@/store/reducers/UserSlice/UserSlice';
+import { setPhoneNumber, setSendingSms } from '@/store/reducers/UserSlice/UserSlice';
 
 const AuthModal = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigateWithParams();
-  const { minutes, seconds } = useTimer({ initTimer: 3600 });
 
   const modal = useAppSelector(state => state.modalReducer);
-  const { sendingSmsCode, changingPhone, autologinToken } = useAppSelector(
+  const { isAuth, sendingSmsCode, changingPhone, autologinToken } = useAppSelector(
     state => state.userReducer,
   );
 
+  const { time, minutes, seconds } = useTimer({ initTimer: 60, paused: !sendingSmsCode });
+
   const isAuthModalOpened = modal.opened && modal.name === 'auth-modal';
-  const showChangePhone = true; //! autologinToken && sendingSmsCode && !changingPhone;
+  const showChangePhone = !autologinToken && sendingSmsCode && !changingPhone;
 
   const closeModalHandler = () => {
+    if (!isAuth && !sendingSmsCode) {
+      dispatch(setPhoneNumber(''));
+    }
     dispatch(closeModal());
   };
 
@@ -38,13 +42,6 @@ const AuthModal = () => {
   const changePhoneBtnHandler = () => {
     dispatch(ChangePhoneNumber());
   };
-
-  useEffect(
-    () => () => {
-      dispatch(setSendingSms(false));
-    },
-    [],
-  );
 
   return (
     <div
@@ -66,7 +63,7 @@ const AuthModal = () => {
         <div className={styles.authModal__content}>
           <div className={styles.content__phoneTitle}>Укажите ваш номер телефона</div>
 
-          <PhoneInput disabled={changingPhone === false} />
+          <PhoneInput disabled={!changingPhone} />
 
           {showChangePhone && (
             <button
@@ -78,10 +75,28 @@ const AuthModal = () => {
             </button>
           )}
 
-          <div className={styles.codeBlock}>
-            <div className={styles.codeBlock__label}>dd</div>
-            <CodeInput />
-          </div>
+          {sendingSmsCode && (
+            <div className={styles.codeBlock}>
+              <div className={styles.codeBlock__label}>
+                Введите код подтверждение из смс
+              </div>
+
+              <CodeInput />
+
+              {time === 0 ? (
+                <button
+                  className={clsx(styles.sendCodeBtn, styles.sendCodeBtn__active)}
+                  type="button"
+                >
+                  Отправить код повторно
+                </button>
+              ) : (
+                <div
+                  className={styles.sendCodeBtn}
+                >{`Не пришёл код? Запросите повторно через\n${minutes} : ${seconds}`}</div>
+              )}
+            </div>
+          )}
 
           {!!autologinToken && (
             <button

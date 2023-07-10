@@ -14,9 +14,14 @@ export type BannerProps = {
 };
 
 export type LoanProps = {
-  advantages?: {};
+  advantages?: { title: string; subtitle: string; image: string }[];
   popularProducts?: { title: string; subtitle: string; image: string }[];
   freeDelivery?: string[];
+  freeCard?: {
+    title: string;
+    subtitle: string;
+    image: string;
+  };
 };
 
 export interface SocialsProps {

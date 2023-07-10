@@ -26,12 +26,12 @@
   }
 
   &__content {
+    width: 90%;
+
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-content: center;
-
-    max-width: 90%;
   }
 }
 
@@ -80,6 +80,12 @@
 
 .content {
 
+  &__phoneTitle {
+    width: 100%;
+
+    text-align: center;
+  }
+
   &__changePhoneBtn {
     margin-top: 16px;
 
@@ -88,6 +94,41 @@
     text-align: start;
     font-family: $support-font;
     color: $light-blue-color;
+  }
+}
+
+.codeBlock {
+  margin-top: 20px;
+
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+
+  &__label {
+    width: 100%;
+
+    text-align: center;
+    font-family: $support-font;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 17px;
+  }
+}
+
+.sendCodeBtn {
+  margin-top: 8px;
+
+  color: $light-blue-color;
+  font-family: $support-font;
+  white-space: pre-wrap;
+
+  &__active {
+    margin-top: 12px;
+
+    cursor: pointer;
   }
 }
 
@@ -110,6 +151,10 @@
     &__changingPhoneBtn {
       font-size: 13px;
     }
+  }
+
+  .sendCodeBtn {
+    font-size: 12px;
   }
 }
 
@@ -139,5 +184,9 @@
     &__changingPhoneBtn {
       font-size: inherit;
     }
+  }
+
+  .sendCodeBtn {
+    font-size: inherit;
   }
 }

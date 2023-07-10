@@ -6,6 +6,7 @@ type TimerType = {
   paused?: boolean;
 };
 interface TimerDataType {
+  time: number;
   days: string;
   hours: string;
   minutes: string;
@@ -59,5 +60,11 @@ export const useTimer = ({ initTimer, reset, paused }: TimerType): TimerDataType
     setSeconds(calcSeconds);
   }, [time]);
 
-  return { days, hours, seconds, minutes };
+  return {
+    time,
+    days,
+    hours,
+    seconds: seconds.length < 2 ? `0${seconds}` : seconds,
+    minutes,
+  };
 };

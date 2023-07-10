@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { CSSProperties, useEffect } from 'react';
 
 import FormInput from '@/components/Inputs/FormInput';
 import { ConfirmCode } from '@/features/AuthFeature';
@@ -11,6 +11,11 @@ const CodeInput = () => {
 
   const { phoneNumber, code } = useAppSelector(state => state.userReducer);
 
+  const inputStyle: CSSProperties = {
+    textAlign: 'center',
+    letterSpacing: 5,
+  };
+
   const codeHandler = (value: string) => {
     const unmaskedValue = resetMask(value);
 
@@ -19,7 +24,22 @@ const CodeInput = () => {
     }
   };
 
-  return <FormInput value={code} onChange={codeHandler} id="sms-code-input" />;
+  useEffect(() => {
+    const inputCode = document.getElementById('sms-code-input');
+
+    if (inputCode) inputCode.focus();
+  }, []);
+
+  return (
+    <FormInput
+      value={code}
+      mask="9 9 9 9"
+      onChange={codeHandler}
+      id="sms-code-input"
+      inputStyle={inputStyle}
+      autoFocus
+    />
+  );
 };
 
 export default CodeInput;

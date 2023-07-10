@@ -3,12 +3,13 @@ import Cookies from 'js-cookie';
 import { AuthApi } from '@/api/AuthApi/AuthApi';
 import { CodeConfirmRequest } from '@/api/AuthApi/types';
 import { NavigateType } from '@/hooks/useNavigateWithParams';
-import { setModal } from '@/store/reducers/ModalSlice/ModalSlice';
+import { closeModal, setModal } from '@/store/reducers/ModalSlice/ModalSlice';
 import {
+  logIn,
   setAutologinToken,
   setChangingPhone,
   setCode,
-  setIsAuth,
+  logOut,
   setPhoneNumber,
   setSendingSms,
 } from '@/store/reducers/UserSlice/UserSlice';
@@ -29,6 +30,7 @@ export const SendSms = (phone: string) => (dispatch: AppDispatch) => {
   dispatch(AuthApi.endpoints.signIn.initiate({ phone }))
     .unwrap()
     .then(() => {
+      dispatch(setPhoneNumber(phone));
       dispatch(setSendingSms(true));
       dispatch(setChangingPhone(false));
     })
@@ -37,6 +39,7 @@ export const SendSms = (phone: string) => (dispatch: AppDispatch) => {
         dispatch(AuthApi.endpoints.signUp.initiate({ phone }))
           .unwrap()
           .then(() => {
+            dispatch(setPhoneNumber(phone));
             dispatch(setSendingSms(true));
             dispatch(setChangingPhone(false));
           })
@@ -50,9 +53,9 @@ export const ConfirmCode =
     dispatch(AuthApi.endpoints.confirm.initiate({ phone, code }))
       .unwrap()
       .then(res => {
-        Cookies.set('Bearer', res.token);
-        dispatch(setPhoneNumber(phone));
-        dispatch(setIsAuth(true));
+        // Cookies.set('Bearer', res.token);
+        // dispatch(setIsAuth(true));
+        dispatch(closeModal());
       });
   };
 
@@ -93,7 +96,7 @@ export const ConfirmAutologinCode =
       .unwrap()
       .then(res => {
         Cookies.set('Bearer', res.token);
-        dispatch(setIsAuth(true));
+        dispatch(logIn());
       });
   };
 

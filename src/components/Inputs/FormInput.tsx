@@ -71,7 +71,11 @@ const FormInput: FC<FormInputProps> = ({
     if (onInput) {
       onInput(inputValue);
     }
-  }, [value, inputValue]);
+  }, [inputValue]);
+
+  useEffect(() => {
+    setInputValue(value);
+  }, [value]);
 
   return (
     <div className={styles.inputContainer} style={containerInputStyle}>
@@ -79,6 +83,7 @@ const FormInput: FC<FormInputProps> = ({
       {mask ? (
         <ReactInputMask
           mask={mask}
+          id={id}
           value={inputValue}
           onInput={inputHandler}
           onChange={changeHandler}
@@ -87,14 +92,17 @@ const FormInput: FC<FormInputProps> = ({
           alwaysShowMask
           style={inputStyle}
           readOnly={disabled}
+          disabled={disabled}
         />
       ) : (
         <input
           className={styles.input}
+          id={id}
           value={inputValue}
           onInput={inputHandler}
           style={inputStyle}
           readOnly={disabled}
+          disabled={disabled}
         />
       )}
       {status === false && required && errorMessage && <div>{errorMessage}</div>}

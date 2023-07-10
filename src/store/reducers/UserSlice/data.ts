@@ -1,13 +1,11 @@
 import Cookies from 'js-cookie';
 
-import { getTokenFromUrl } from '@/utils/autoLogin';
-
 interface UserType {
   isAuth: boolean;
   phoneNumber: string;
   code: string;
   sendingSmsCode: boolean;
-  changingPhone?: boolean;
+  changingPhone: boolean;
   autologinToken?: string;
 }
 
@@ -16,7 +14,7 @@ const initialState: UserType = {
   phoneNumber: '',
   code: '',
   sendingSmsCode: false,
-  changingPhone: undefined,
+  changingPhone: true,
   autologinToken: undefined,
 };
 

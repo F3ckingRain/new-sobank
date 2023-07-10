@@ -2,6 +2,7 @@ import React from 'react';
 
 import Banner from '@/components/Banner/Banner';
 import FreeDelivery from '@/components/FreeDelivery/FreeDelivery';
+import GetCreditCard from '@/components/GetCreditCard/GetCreditCard';
 import PopularProducts from '@/components/PopularProducts/PopularProducts';
 import Wrapper from '@/containers/Wrapper/Wrapper';
 import { Landing } from '@/themes/config';
@@ -26,6 +27,12 @@ const HomePage = () => {
       {!!loanProps.freeDelivery && (
         <Wrapper>
           <FreeDelivery list={loanProps.freeDelivery} />
+        </Wrapper>
+      )}
+
+      {!!loanProps.freeCard && (
+        <Wrapper>
+          <GetCreditCard {...loanProps.freeCard} btnText="Получить карту" phoneBlock />
         </Wrapper>
       )}
     </>

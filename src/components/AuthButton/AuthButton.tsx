@@ -7,7 +7,12 @@ import useLocalStorage from '@/hooks/useLocalStorage';
 import useNavigateWithParams from '@/hooks/useNavigateWithParams';
 import CustomButton, { CustomButtonProps } from '@/shared/CustomButton/CustomButton';
 
-const AuthButton: FC<CustomButtonProps> = ({ children, style, additionalClassname }) => {
+const AuthButton: FC<CustomButtonProps> = ({
+  children,
+  style,
+  additionalClassname,
+  onClick,
+}) => {
   const dispatch = useAppDispatch();
   const navigate = useNavigateWithParams();
   const ls = useLocalStorage();
@@ -28,6 +33,10 @@ const AuthButton: FC<CustomButtonProps> = ({ children, style, additionalClassnam
     if (!showcase) {
       showCaseHandler();
     }
+    if (onClick) {
+      return onClick();
+    }
+
     return dispatch(OpenAuthModal(navigate));
   };
 

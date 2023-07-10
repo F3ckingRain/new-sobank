@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { CSSProperties, FC, useCallback } from 'react';
 
 import FormInput from '@/components/Inputs/FormInput';
 import { SendSms } from '@/features/AuthFeature';
@@ -7,20 +7,36 @@ import useAppSelector from '@/hooks/useAppSelector';
 import { resetMask, validatePhone } from '@/utils/validation';
 
 interface PhoneInputProps {
-  disabled: boolean;
+  disabled?: boolean;
+  callBack?: (value: string) => void;
+  containerStyle?: CSSProperties;
 }
-const PhoneInput: FC<PhoneInputProps> = ({ disabled }) => {
+const PhoneInput: FC<PhoneInputProps> = ({ disabled, callBack, containerStyle }) => {
   const dispatch = useAppDispatch();
 
   const { phoneNumber } = useAppSelector(state => state.userReducer);
 
-  const inputHandler = (value: string) => {
-    const unmaskedValue = resetMask(value);
-
-    if (unmaskedValue.length === 11) {
-      dispatch(SendSms(unmaskedValue));
-    }
+  const containerStyleParam: CSSProperties = {
+    marginTop: 20,
+    ...containerStyle,
   };
+
+  const inputHandler = useCallback(
+    (value: string) => {
+      const unmaskedValue = resetMask(value);
+
+      if (callBack) {
+        return callBack(unmaskedValue);
+      }
+
+      if (unmaskedValue.length === 11) {
+        return dispatch(SendSms(unmaskedValue));
+      }
+
+      return undefined;
+    },
+    [phoneNumber, callBack],
+  );
 
   return (
     <FormInput
@@ -30,7 +46,7 @@ const PhoneInput: FC<PhoneInputProps> = ({ disabled }) => {
       minLength={18}
       onInput={inputHandler}
       validator={validatePhone}
-      containerInputStyle={{ marginTop: 20 }}
+      containerInputStyle={containerStyleParam}
       disabled={disabled}
     />
   );

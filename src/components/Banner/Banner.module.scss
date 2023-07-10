@@ -35,14 +35,20 @@
 
 @include mobile-width {
   .banner {
-    padding: 20px 16px 16px;
+    padding: 20px 16px 15px;
 
     height: 269px;
 
-    background-image: linear-gradient(143deg, #FA614A 0%, rgba(250, 97, 74, 0.50) 100%);
+    border-bottom: 1px solid $white;
+
+    background-color: $white;
+    background-image: linear-gradient(270.29deg, rgb(250, 97, 74) 16.04%, rgba(250, 97, 74, 0.5) 65.38%);
   }
 
   .content {
+    height: 100%;
+
+    justify-content: flex-end;
     gap: 12px;
 
     &__title {
@@ -61,7 +67,9 @@
     width: 100%;
     height: 305px;
 
-    background-image: linear-gradient(180deg, rgba(196, 196, 196, 0.00) 64.18%, #FFF 89.06%);
+    background-image: linear-gradient(180deg,hsla(0,0%,77%,0) 64.18%,#fff 89.06%);
+
+    border-bottom: 1px solid $white;
 
     &__img {
       position: absolute;
@@ -69,7 +77,9 @@
   }
 
   .btnSubmit {
-    margin-top: auto;
+    margin-top: 40px;
+
+    min-height: 48px;
 
     z-index: 2;
   }

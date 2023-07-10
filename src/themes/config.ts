@@ -2,10 +2,11 @@ import bannerCreditCardSobankMobile from '../assets/Banner/Sobank/Mobile/creditC
 import socialsTelegramSobank from '../assets/Footer/Socials/Sobank/socialsTelegram.svg';
 import socialsViberSobank from '../assets/Footer/Socials/Sobank/socialsViber.svg';
 import socialsVkSobank from '../assets/Footer/Socials/Sobank/socialsVk.svg';
-import popularProductsCashbackSobank from '../assets/PopularProducts/Sobank/product_Cashback.svg';
-import popularProductsCreditCardSobank from '../assets/PopularProducts/Sobank/products_creditCard.svg';
-import popularProductsCreditCashSobank from '../assets/PopularProducts/Sobank/products_creditCash.svg';
+import getCreditCardMobileSobank from '../assets/GetCreditCard/mobile/getCreditCard_mobile_sobank.webp';
 
+import popularProductsCashbackSobank from '@/assets/HomePage/PopularProducts/Sobank/product_Cashback.svg';
+import popularProductsCreditCardSobank from '@/assets/HomePage/PopularProducts/Sobank/products_creditCard.svg';
+import popularProductsCreditCashSobank from '@/assets/HomePage/PopularProducts/Sobank/products_creditCash.svg';
 import { MOBILE_WIDTH } from '@/constants/resolution';
 import { LandingType } from '@/themes/types';
 
@@ -70,6 +71,11 @@ export const Landing: LandingType = {
           'Вы вместе с ним выберете дату, время и место встречи',
           'Курьер привезет карту и все документы',
         ],
+        freeCard: {
+          title: 'Получите бесплатную кредитную карту за 2 минуты',
+          subtitle: 'Заполните онлайн-анкету, получите лимит до 1 млн',
+          image: getCreditCardMobileSobank,
+        },
       },
       credit_cash: {},
       credit_card: {},
