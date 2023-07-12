@@ -44,3 +44,5 @@ export const validatePhone = (value: string) => {
   };
   return resetMask(getValue());
 };
+
+export const validateCode = (value: string): string => resetMask(value);

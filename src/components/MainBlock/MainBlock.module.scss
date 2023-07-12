@@ -1,15 +1,11 @@
 @import "../../styles/mixins";
 
-.freeDelivery {
-  padding: 16px;
-
+.mainBlock {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 
   border-radius: 5px;
-
-  box-shadow: 0 2px 5px 0 rgba(38, 53, 104, 0.25);
 
   &__content {
     display: flex;
@@ -22,9 +18,17 @@
   }
 }
 
+.blue {
+  box-shadow: none;
+}
+
+.white {
+  box-shadow: 0 2px 5px 0 rgba(38, 53, 104, 0.25);
+}
+
 
 @include mobile-width {
-  .freeDelivery {
+  .mainBlock {
     margin-top: 14px;
 
     gap: 16px;
@@ -39,10 +43,26 @@
       text-align: center;
     }
   }
+
+  .white {
+    padding: 16px;
+  }
+
+  .blue {
+    padding: 16px 0;
+  }
 }
 
 @include desktop-width {
-  .freeDelivery {
+  .mainBlock {
+
+  }
+
+  .white {
+
+  }
+
+  .blue {
 
   }
 }

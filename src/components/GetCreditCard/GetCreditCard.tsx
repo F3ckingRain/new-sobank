@@ -36,6 +36,14 @@ const GetCreditCard: FC<GetCreditProps> = ({
   const imageContainerStyle: CSSProperties = {
     backgroundImage: `url(${image})`,
   };
+
+  const phoneInputContainerStyle: CSSProperties = {
+    marginTop: 16,
+  };
+
+  const phoneInputStyle: CSSProperties = {
+    backgroundColor: '#fff',
+  };
   const phoneInputHandler = (value: string) => {
     dispatch(setPhoneNumber(value));
   };
@@ -43,6 +51,7 @@ const GetCreditCard: FC<GetCreditProps> = ({
   return (
     <div className={containerClassName || styles.getCreditContainer}>
       {image && <div className={styles.imageContainer} style={imageContainerStyle} />}
+
       <div className={contentClassName || styles.getCreditContent}>
         {children}
         {title && (
@@ -56,7 +65,12 @@ const GetCreditCard: FC<GetCreditProps> = ({
           </div>
         )}
         {phoneBlock && (
-          <PhoneInput containerStyle={{ marginTop: 16 }} callBack={phoneInputHandler} />
+          <PhoneInput
+            containerStyle={phoneInputContainerStyle}
+            inputStyle={phoneInputStyle}
+            callBack={phoneInputHandler}
+            label="Мобильный телефон"
+          />
         )}
         {btnText && (
           <AuthButton additionalClassname={styles.btnSubmit}>{btnText}</AuthButton>

@@ -1,0 +1,75 @@
+@import "../../styles/mixins";
+
+.outServices {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  &__title {
+    @include BlockTitle;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__item {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.svgCircle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 30px;
+
+  background-image: linear-gradient(rgb(241, 241, 241) 0%, rgb(255, 255, 255) 36.46%);
+
+  box-shadow: 0 2px 5px rgba(38,53,104,.25);
+}
+
+.text {
+  text-align: center;
+  @include ContentSubtitle;
+}
+
+@include mobile-width {
+  .outServices {
+    margin-top: 24px;
+
+    gap: 12px;
+
+    &__item {
+      gap: 4px;
+    }
+
+    &__list {
+      justify-content: space-between;
+    }
+  }
+
+  .svgCircle {
+    width: 50px;
+    height: 50px;
+
+    &__container {
+      width: 25px;
+      height: 25px;
+    }
+  }
+}
+
+@include desktop-width {
+  .outServices {
+
+  }
+}

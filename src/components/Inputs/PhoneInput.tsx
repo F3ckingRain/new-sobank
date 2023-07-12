@@ -10,8 +10,16 @@ interface PhoneInputProps {
   disabled?: boolean;
   callBack?: (value: string) => void;
   containerStyle?: CSSProperties;
+  inputStyle?: CSSProperties;
+  label?: string;
 }
-const PhoneInput: FC<PhoneInputProps> = ({ disabled, callBack, containerStyle }) => {
+const PhoneInput: FC<PhoneInputProps> = ({
+  disabled,
+  callBack,
+  inputStyle,
+  containerStyle,
+  label,
+}) => {
   const dispatch = useAppDispatch();
 
   const { phoneNumber } = useAppSelector(state => state.userReducer);
@@ -19,6 +27,10 @@ const PhoneInput: FC<PhoneInputProps> = ({ disabled, callBack, containerStyle })
   const containerStyleParam: CSSProperties = {
     marginTop: 20,
     ...containerStyle,
+  };
+
+  const inputStyleParams: CSSProperties = {
+    ...inputStyle,
   };
 
   const inputHandler = useCallback(
@@ -44,9 +56,11 @@ const PhoneInput: FC<PhoneInputProps> = ({ disabled, callBack, containerStyle })
       id="phoneInput"
       mask="+7-(999)-999-99-99"
       minLength={18}
-      onInput={inputHandler}
+      label={label}
+      onChange={inputHandler}
       validator={validatePhone}
       containerInputStyle={containerStyleParam}
+      inputStyle={inputStyleParams}
       disabled={disabled}
     />
   );

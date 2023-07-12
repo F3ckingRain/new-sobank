@@ -1,8 +1,10 @@
 import React from 'react';
 
 import Banner from '@/components/Banner/Banner';
-import FreeDelivery from '@/components/FreeDelivery/FreeDelivery';
 import GetCreditCard from '@/components/GetCreditCard/GetCreditCard';
+import InstallmentPartners from '@/components/InstallmentPartners/InstallmentPartners';
+import MainBlock from '@/components/MainBlock/MainBlock';
+import OurServices from '@/components/OurServices/OurServices';
 import PopularProducts from '@/components/PopularProducts/PopularProducts';
 import Wrapper from '@/containers/Wrapper/Wrapper';
 import { Landing } from '@/themes/config';
@@ -24,17 +26,23 @@ const HomePage = () => {
         </Wrapper>
       )}
 
-      {!!loanProps.freeDelivery && (
-        <Wrapper>
-          <FreeDelivery list={loanProps.freeDelivery} />
-        </Wrapper>
-      )}
+      {!!loanProps.freeDelivery && <MainBlock {...loanProps.freeDelivery} />}
 
       {!!loanProps.freeCard && (
         <Wrapper>
           <GetCreditCard {...loanProps.freeCard} btnText="Получить карту" phoneBlock />
         </Wrapper>
       )}
+
+      {!!loanProps.getCredit && <MainBlock {...loanProps.getCredit} />}
+
+      <Wrapper>
+        <InstallmentPartners />
+      </Wrapper>
+
+      <Wrapper>
+        <OurServices />
+      </Wrapper>
     </>
   );
 };

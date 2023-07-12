@@ -14,6 +14,59 @@
   @include ScrollBar;
 }
 
+.navScrollContainer {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.slider {
+  width: 100%;
+
+  overflow-x: hidden;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  transition: all .5s ease-in-out;
+}
+
+.dots {
+  min-height: 12px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background-color: $gray-text-color;
+
+  cursor: pointer;
+
+  transition: all .3s ease-in-out;
+
+  &__active {
+    width: 10px;
+    height: 10px;
+
+    background-color: #000000;
+  }
+}
+
 @include mobile-width {
   .scrollContainer {
     gap: 16px;
@@ -23,5 +76,12 @@
 @include desktop-width {
   .scrollContainer {
 
+  }
+
+  .dot {
+    &:hover {
+      width: 12px;
+      height: 12px;
+    }
   }
 }

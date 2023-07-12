@@ -1,0 +1,74 @@
+@import "../../styles/mixins";
+
+.installmentPartners {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: $white;
+
+  box-shadow: 0 2px 5px 0 rgba(38, 53, 104, 0.25);
+
+  border-radius: 5px;
+
+  &__title {
+    @include BlockTitle {
+      text-align: center;
+    };
+  }
+}
+
+.installmentItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.imageContainer {
+
+  &__img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.text {
+  font-family: $support-font;
+  font-weight: 400;
+  line-height: normal;
+  color: $support-gray-text-color;
+}
+
+@include mobile-width {
+  .installmentPartners {
+    margin-top: 24px;
+    padding: 16px;
+
+    gap: 16px;
+
+    &__title {
+      padding: 0 44px;
+    }
+  }
+
+  .installmentItem {
+    gap: 4px;
+  }
+
+  .imageContainer {
+    width: 72px;
+    height: 72px;
+  }
+
+  .text {
+    font-size: 13px;
+  }
+}
+
+@include desktop-width {
+  .installmentItem {
+
+  }
+}

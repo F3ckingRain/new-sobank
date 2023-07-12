@@ -1,3 +1,93 @@
-.accordion {
+@import "../../styles/mixins";
 
+.accordion {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  &__title {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+
+    width: 100%;
+    min-height: 20px;
+
+    background-color: transparent;
+
+    @include BlockTitle;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  width: 100%;
+  max-height: 0;
+
+  scale: 1 0;
+  transform: translateY(-100%);
+  transform-origin: top;
+  transition: all .5s ease-in-out;
+
+  @include ContentSubtitle;
+
+  &__active {
+    max-height: none;
+
+    scale: 1 1;
+    transform: translateY(0);
+    transform-origin: bottom;
+  }
+}
+
+.arrow {
+  padding: 2px;
+
+  border: solid #000;
+  border-width: 0 1px 1px 0;
+
+  rotate: -45deg;
+  transition: all .5s ease-in-out;
+
+  &__active {
+    transform: translateY(-2px);
+    rotate: 45deg;
+  }
+}
+
+@include mobile-width {
+  .accordion {
+    gap: 0;
+
+    &__active {
+      gap: 10px;
+    }
+  }
+
+  .content {
+    gap: 8px;
+
+    font-size: 12px;
+  }
+}
+
+@include desktop-width {
+  .accordion {
+    gap: 0;
+
+    &__active {
+      gap: 16px;
+    }
+  }
+
+  .content {
+
+  }
 }

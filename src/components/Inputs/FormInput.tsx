@@ -9,8 +9,8 @@ interface FormInputProps {
   id: string;
   placeholder?: string;
   checked?: boolean;
-  onChange?: (value: string) => void;
   onInput?: (value: string) => void;
+  onChange?: (value: string) => void;
   inputStyle?: CSSProperties;
   containerInputStyle?: CSSProperties;
   mask?: string;
@@ -27,7 +27,6 @@ interface FormInputProps {
 }
 const FormInput: FC<FormInputProps> = ({
   label,
-  onInput,
   checker,
   mask,
   autoComplete,
@@ -45,17 +44,11 @@ const FormInput: FC<FormInputProps> = ({
   id,
   containerInputStyle,
   inputStyle,
+  onInput,
 }) => {
   const [inputValue, setInputValue] = useState<string>(value);
   const [touched, setTouched] = useState<boolean>(!!value);
   const [status, setStatus] = useState<boolean | undefined>(initialStatus);
-
-  const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (validator) {
-      return setInputValue(validator(e.target.value));
-    }
-    return setInputValue(e.target.value);
-  };
 
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (validator) {
@@ -65,12 +58,10 @@ const FormInput: FC<FormInputProps> = ({
   };
 
   useEffect(() => {
-    if (onChange) {
-      onChange(inputValue);
-    }
-    if (onInput) {
-      onInput(inputValue);
-    }
+    if (onChange) return onChange(inputValue);
+    if (onInput) return onInput(inputValue);
+
+    return undefined;
   }, [inputValue]);
 
   useEffect(() => {
@@ -79,14 +70,18 @@ const FormInput: FC<FormInputProps> = ({
 
   return (
     <div className={styles.inputContainer} style={containerInputStyle}>
-      {!!label && <label htmlFor={id}>{label}</label>}
+      {!!label && (
+        <label className={styles.label} htmlFor={id}>
+          {label}
+        </label>
+      )}
+
       {mask ? (
         <ReactInputMask
           mask={mask}
           id={id}
           value={inputValue}
-          onInput={inputHandler}
-          onChange={changeHandler}
+          onInput={changeHandler}
           className={styles.input}
           minLength={minLength}
           alwaysShowMask
@@ -99,12 +94,13 @@ const FormInput: FC<FormInputProps> = ({
           className={styles.input}
           id={id}
           value={inputValue}
-          onInput={inputHandler}
+          onInput={changeHandler}
           style={inputStyle}
           readOnly={disabled}
           disabled={disabled}
         />
       )}
+
       {status === false && required && errorMessage && <div>{errorMessage}</div>}
     </div>
   );
