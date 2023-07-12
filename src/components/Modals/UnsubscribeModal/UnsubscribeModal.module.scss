@@ -1,0 +1,17 @@
+@import "../../../styles/mixins";
+
+.unsubscribeModal {
+
+}
+
+@include mobile-width {
+  .unsubscribeModal {
+
+  }
+}
+
+@include desktop-width {
+  .unsubscribeModal {
+
+  }
+}

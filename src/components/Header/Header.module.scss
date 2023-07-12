@@ -1,6 +1,16 @@
 @import "../../styles/mixins";
 
 .header {
+  width: 100%;
+  max-height: 90px;
+  min-height: 90px;
+
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
   background-color: $white;
 
   z-index: 10;
@@ -11,15 +21,11 @@
     position: fixed;
     top: 0;
 
-    width: 100%;
-
-    box-sizing: border-box;
-
-    padding: 16px 20px;
+    padding: 16px;
 
     &__btnLogo {
-      width: 77px;
-      height: 28px;
+      width: 85px;
+      height: 32px;
 
       border: none;
       outline: none;
@@ -27,6 +33,20 @@
       @include BackgroundImage {
         background-image: url("../../assets/Header/headerLogoSobank_mobile.svg");
       }
+    }
+  }
+
+  .btnUnsubscribe {
+    padding: 5px 10px;
+
+    box-sizing: border-box;
+
+    @include ButtonMain {
+      height: 38px;
+
+      font-size: 14px;
+      font-weight: 500;
+      white-space: pre-wrap;
     }
   }
 }
