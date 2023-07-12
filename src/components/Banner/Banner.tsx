@@ -18,7 +18,9 @@ const Banner: FC<IBanner> = ({ title, subtitle, btnText, image, imageStyle }) =>
     <div className={styles.imgContainer}>
       <img className={styles.imgContainer__img} alt="" src={image} style={imageStyle} />
     </div>
-    <AuthButton additionalClassname={styles.btnSubmit}>{btnText}</AuthButton>
+    <AuthButton additionalClassname={styles.btnSubmit} style={{ borderRadius: 10 }}>
+      {btnText}
+    </AuthButton>
   </div>
 );
 

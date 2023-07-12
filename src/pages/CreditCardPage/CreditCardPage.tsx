@@ -13,7 +13,7 @@ const CreditCardPage = () => {
   return (
     <>
       <Wrapper style={{ padding: 0 }}>
-        <Banner {...bannerProps} imageStyle={{ right: 3, bottom: 35 }} />
+        <Banner {...bannerProps} imageStyle={{ right: 0, bottom: 35 }} />
       </Wrapper>
 
       {!!loanProps.advantages && (

@@ -14,8 +14,8 @@ export const Landing: LandingType = {
       home_page: {
         title: 'Кредитные карты\nдо 160 дней без %',
         subtitle: isMobileView
-          ? 'До 1 000 000 ₽\nОбслуживание 0₽*\nРассрочка'
-          : 'До 1 000 000 ₽\nОбслуживание 0₽*',
+          ? 'До 1 000 000 ₽\nОбслуживание 0 ₽*\nРассрочка'
+          : 'До 1 000 000 ₽\nОбслуживание 0 ₽*',
         btnText: 'Оформить карту',
         image: bannerCreditCardSobankMobile,
       },
