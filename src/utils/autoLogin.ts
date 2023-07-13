@@ -1,23 +1,18 @@
 import { Nullable } from '@/types/default';
 
 export const getTokenFromUrl = (): Nullable<string> => {
-  if (
-    !(
-      window.location.search.includes('?token=') ||
-      window.location.search.includes('&token=')
-    )
-  )
-    return null;
+  const { search } = window.location;
 
-  const location = window.location.search;
+  if (!(search.includes('?token=') || search.includes('&token='))) return null;
+
   let token;
 
-  if (location.includes('?token=')) {
-    const index = location.lastIndexOf('?token=');
-    token = location.substring(index + 1, index + 22);
+  if (search.includes('?token=')) {
+    const index = search.lastIndexOf('?token=');
+    token = search.substring(index + 1, index + 22);
   } else {
-    const index = location.lastIndexOf('&token=');
-    token = location.substring(index + 1, index + 22);
+    const index = search.lastIndexOf('&token=');
+    token = search.substring(index + 1, index + 22);
   }
   token = token.replace('token=', '');
 
