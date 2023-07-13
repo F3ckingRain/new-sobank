@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
 import useAppDispatch from '@/hooks/useAppDispatch';
 import useLocalStorage from '@/hooks/useLocalStorage';
@@ -19,7 +19,7 @@ const ShowcaseModal = () => {
     return () => window.removeEventListener('unload', removeShowcase);
   }, []);
 
-  return <div style={{ display: 'none' }} />;
+  return null;
 };
 
 export default ShowcaseModal;

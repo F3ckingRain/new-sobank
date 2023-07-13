@@ -85,6 +85,7 @@ const FormInput: FC<FormInputProps> = ({
           className={styles.input}
           minLength={minLength}
           alwaysShowMask
+          autoComplete={autoComplete || 'off'}
           style={inputStyle}
           readOnly={disabled}
           disabled={disabled}
@@ -94,6 +95,7 @@ const FormInput: FC<FormInputProps> = ({
           className={styles.input}
           id={id}
           value={inputValue}
+          autoComplete={autoComplete || 'off'}
           onInput={changeHandler}
           style={inputStyle}
           readOnly={disabled}

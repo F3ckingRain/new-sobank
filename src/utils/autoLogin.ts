@@ -1,11 +1,13 @@
-export const getTokenFromUrl = (): string | undefined => {
+import { Nullable } from '@/types/default';
+
+export const getTokenFromUrl = (): Nullable<string> => {
   if (
     !(
       window.location.search.includes('?token=') ||
       window.location.search.includes('&token=')
     )
   )
-    return undefined;
+    return null;
 
   const location = window.location.search;
   let token;

@@ -68,6 +68,8 @@ export type FooterProps = {
 };
 
 export type LandingType = {
+  yandexMetrics: DomainProps<string>;
+  favicon: DomainProps<string>;
   banner: DomainProps<ProductProps<BannerProps>>;
   loan: DomainProps<ProductProps<LoanProps>>;
   footer: DomainProps<FooterProps>;

@@ -26,6 +26,9 @@ export const userSlice = createSlice({
     setChangingPhone(state, { payload }: PayloadAction<boolean>) {
       state.changingPhone = payload;
     },
+    setErrorMessage(state, { payload }: PayloadAction<string>) {
+      state.errorMessage = payload;
+    },
     setAutologinToken(state, { payload }: PayloadAction<string>) {
       state.autologinToken = payload;
     },
@@ -39,6 +42,7 @@ export const {
   logOut,
   logIn,
   setChangingPhone,
+  setErrorMessage,
   setSendingSms,
 } = userSlice.actions;
 export default userSlice.reducer;

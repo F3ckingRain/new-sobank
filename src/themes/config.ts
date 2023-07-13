@@ -1,6 +1,7 @@
-import * as path from 'path';
-
 import bannerCreditCardSobankMobile from '../assets/Banner/Sobank/Mobile/creditCard_mobile.webp';
+import kkFavicon from '../assets/Favicons/fav-kk-sobank.ico';
+import onbankFavicon from '../assets/Favicons/onbank.ico';
+import sobankFavicon from '../assets/Favicons/sov.ico';
 import getCreditCardMobileSobank from '../assets/GetCreditCard/mobile/getCreditCard_mobile_sobank.webp';
 
 import { MOBILE_WIDTH } from '@/constants/resolution';
@@ -9,6 +10,18 @@ import { getCurrentYear } from '@/utils/date';
 
 const isMobileView = document.body.clientWidth < MOBILE_WIDTH;
 export const Landing: LandingType = {
+  yandexMetrics: {
+    sobank: '',
+    sobankSu: '',
+    firstCredit: '',
+    onbank: '',
+  },
+  favicon: {
+    sobank: sobankFavicon,
+    sobankSu: sobankFavicon,
+    firstCredit: '',
+    onbank: onbankFavicon,
+  },
   banner: {
     sobank: {
       home_page: {

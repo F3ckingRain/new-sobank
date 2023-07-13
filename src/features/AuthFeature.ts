@@ -12,6 +12,7 @@ import {
   logOut,
   setPhoneNumber,
   setSendingSms,
+  setErrorMessage,
 } from '@/store/reducers/UserSlice/UserSlice';
 import { AppDispatch, AppStore } from '@/store/redux/store';
 import { getTokenFromUrl } from '@/utils/autoLogin';
@@ -55,7 +56,11 @@ export const ConfirmCode =
       .then(res => {
         // Cookies.set('Bearer', res.token);
         // dispatch(setIsAuth(true));
+        dispatch(setErrorMessage(''));
         dispatch(closeModal());
+      })
+      .catch(err => {
+        if (err.status === 400) dispatch(setErrorMessage('Вы ввели неверный код'));
       });
   };
 
@@ -101,3 +106,5 @@ export const ConfirmAutologinCode =
   };
 
 export const ChangePhoneNumber = () => (dispatch: AppDispatch) => {};
+
+export const LogOut = () => (dispatch: AppDispatch) => {};

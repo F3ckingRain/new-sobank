@@ -45,7 +45,7 @@ const PhoneInput: FC<PhoneInputProps> = ({
         return dispatch(SendSms(unmaskedValue));
       }
 
-      return undefined;
+      return null;
     },
     [phoneNumber, callBack],
   );

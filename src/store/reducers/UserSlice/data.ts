@@ -1,12 +1,15 @@
 import Cookies from 'js-cookie';
 
+import { Nullable } from '@/types/default';
+
 interface UserType {
   isAuth: boolean;
   phoneNumber: string;
   code: string;
   sendingSmsCode: boolean;
   changingPhone: boolean;
-  autologinToken?: string;
+  errorMessage: string;
+  autologinToken: Nullable<string>;
 }
 
 const initialState: UserType = {
@@ -15,7 +18,8 @@ const initialState: UserType = {
   code: '',
   sendingSmsCode: false,
   changingPhone: true,
-  autologinToken: undefined,
+  errorMessage: '',
+  autologinToken: null,
 };
 
 export default initialState;

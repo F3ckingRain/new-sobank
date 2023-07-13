@@ -9,7 +9,7 @@ import { resetMask } from '@/utils/validation';
 const CodeInput = () => {
   const dispatch = useAppDispatch();
 
-  const { phoneNumber, code } = useAppSelector(state => state.userReducer);
+  const { phoneNumber, code, errorMessage } = useAppSelector(state => state.userReducer);
 
   const inputStyle: CSSProperties = {
     textAlign: 'center',
@@ -37,6 +37,7 @@ const CodeInput = () => {
       onChange={codeHandler}
       id="sms-code-input"
       inputStyle={inputStyle}
+      errorMessage={errorMessage}
       autoFocus
     />
   );
