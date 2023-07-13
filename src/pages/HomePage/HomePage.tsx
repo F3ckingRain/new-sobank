@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Banner from '@/components/Banner/Banner';
+import Exchange from '@/components/Exchange/Exchange';
 import GetCreditCard from '@/components/GetCreditCard/GetCreditCard';
 import InstallmentPartners from '@/components/InstallmentPartners/InstallmentPartners';
 import MainBlock from '@/components/MainBlock/MainBlock';
@@ -42,6 +43,10 @@ const HomePage = () => {
 
       <Wrapper>
         <OurServices />
+      </Wrapper>
+
+      <Wrapper>
+        <Exchange />
       </Wrapper>
     </>
   );

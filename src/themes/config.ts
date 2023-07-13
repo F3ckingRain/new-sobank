@@ -32,7 +32,12 @@ export const Landing: LandingType = {
         btnText: 'Оформить карту',
         image: bannerCreditCardSobankMobile,
       },
-      credit_cash: {},
+      credit_cash: {
+        title: 'Кредит\nналичными',
+        subtitle: 'Ставка от 5,5%\nна весь срок',
+        btnText: 'Оформить заявку',
+        image: '',
+      },
       credit_card: {
         title: 'Кредитные карты\nдо 160 дней без %',
         subtitle: isMobileView

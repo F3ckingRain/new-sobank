@@ -10,7 +10,9 @@
     "prettier": "prettier -w src",
     "lint": "yarn run prettier && eslint \"**/*.{js,ts,tsx}\" --ignore-pattern node_modules/ --fix",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "dev": "VITE_THEME=sobank VITE_BACKEND=dev",
+    "prod": "VITE_THEME=sobank VITE_BACKEND=prod"
   },
   "dependencies": {
     "js-cookie": "~3.0.5",
