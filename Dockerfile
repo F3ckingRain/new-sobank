@@ -11,6 +11,6 @@ RUN yarn
 #add app
 COPY . .
 #build
-RUN yarn run vite:build
+RUN yarn run build
 #Run locally after build
-CMD ["yarn", "run", "vite:start"]
+CMD ["yarn", "run", "start"]
