@@ -26,6 +26,7 @@
 //TEXT
 @mixin MainTitle {
   font-family: $main-font;
+  font-style: normal;
   font-weight: 550;
 
   @include mobile-width {
@@ -48,6 +49,7 @@
 
 @mixin MainSubtitle {
   font-family: $support-font;
+  font-style: normal;
   font-weight: 400;
   line-height: normal;
 
@@ -71,6 +73,7 @@
 @mixin BlockTitle {
   font-family: $main-font;
   font-weight: 550;
+  font-style: normal;
   line-height: normal;
   color: $dark-text-color;
 
@@ -92,6 +95,7 @@
 @mixin ContentTitle {
   font-family: $main-font;
   line-height: normal;
+  font-style: normal;
   color: $dark-text-color;
 
   @include mobile-width {
@@ -115,6 +119,7 @@
   font-family: $support-font;
   font-weight: 400;
   line-height: normal;
+  font-style: normal;
   color: $gray-text-color;
 
   @include mobile-width {
