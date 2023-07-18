@@ -4,20 +4,38 @@ $desktop-width: 992px;
 
 //COLORS
 $white: #ffffff;
-$semi-white-color: #e7e7e7;
-$main-orange-color: #FA614A;
-$dark-text-color: #1c1c1e;
-$gray-text-color: #6c6c6c;
-$darker-gray-text-color: rgb(90, 90, 90);
-$gray-background: #ececec;
-$main-blue-color: #317EB0;
-$dark-blue-color: #03318c;
-$light-gray-color: #c4c4c4;
-$light-blue-color: rgba(24,144,255,.7);
-$input-gray-text-color: hsla(0,0%,39%,.9);
-$support-gray-text-color: #8d8d8d;
+
+/// Sobank
+$sobank-semi-white-color: #e7e7e7;
+$sobank-main-orange-color: #FA614A;
+$sobank-dark-text-color: #1c1c1e;
+$sobank-gray-text-color: #6c6c6c;
+$sobank-darker-gray-text-color: rgb(90, 90, 90);
+$sobank-gray-background: #ececec;
+$sobank-main-blue-color: #317EB0;
+$sobank-dark-blue-color: #03318c;
+$sobank-light-gray-color: #c4c4c4;
+$sobank-light-blue-color: rgba(24,144,255,.7);
+$sobank-input-gray-text-color: hsla(0,0%,39%,.9);
+$sobank-support-gray-text-color: #8d8d8d;
+
+///SobankRedesign
+$redesign-blue_1: #56C7F5;
+$redesign-blue_2: #A3E4FF;
+$redesign-blue_3: #41B2E0;
+$redesign-gray-1: #E7EFF5;
+$redesign-gray-2: #9BB2BB;
+$redesign-gray-3: #F3F7FA;
+$redesign-red: #FF4F4F;
+$redesign-black: #2C363C;
+$redesign-green: #61DA6D;
 
 //FONTS
-$main-font: 'HelveticaNeurCyr', sans-serif;
-$support-font: 'Tahoma', sans-serif;
-$font-subModal: 'Inter', sans-serif;
+
+///Sobank
+$sobank-main-font: 'HelveticaNeurCyr', sans-serif;
+$sobank-support-font: 'Tahoma', sans-serif;
+$sobank-font-subModal: 'Inter', sans-serif;
+
+///SobankRedesign
+$redesign-main-font: 'Inter', sans-serif, normal;

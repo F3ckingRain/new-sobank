@@ -49,7 +49,7 @@
 
   border-radius: 50%;
 
-  background-color: $light-gray-color;
+  background-color: $sobank-light-gray-color;
 
   rotate: 0;
   transition: rotate .5s ease-in-out;
@@ -92,8 +92,8 @@
     background-color: transparent;
 
     text-align: start;
-    font-family: $support-font;
-    color: $light-blue-color;
+    font-family: $sobank-support-font;
+    color: $sobank-light-blue-color;
   }
 }
 
@@ -111,7 +111,7 @@
     width: 100%;
 
     text-align: center;
-    font-family: $support-font;
+    font-family: $sobank-support-font;
     font-weight: 400;
     font-size: 13px;
     line-height: 17px;
@@ -121,8 +121,8 @@
 .sendCodeBtn {
   margin-top: 8px;
 
-  color: $light-blue-color;
-  font-family: $support-font;
+  color: $sobank-light-blue-color;
+  font-family: $sobank-support-font;
   white-space: pre-wrap;
 
   &__active {

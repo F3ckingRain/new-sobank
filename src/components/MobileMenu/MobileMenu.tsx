@@ -2,11 +2,13 @@ import React, { FC, useEffect, useState } from 'react';
 
 import clsx from 'clsx';
 
-import authLogo from '../../../assets/MobileMenu/Sobank/mobileMenu_auth.svg';
+import authLogo from '../../assets/MobileMenu/Sobank/mobileMenu_auth.svg';
 
 import styles from './MobileMenu.module.scss';
 
-import menuLinks from '@/components/Modals/MobileMenu/data';
+import menuLinks from '@/components/MobileMenu/data';
+import Toolbar from '@/components/MobileMenu/Toolbar';
+import { CURRENT_THEME } from '@/config/themeConfig';
 import { OpenAuthModal } from '@/features/AuthFeature';
 import useAppDispatch from '@/hooks/useAppDispatch';
 import useAppSelector from '@/hooks/useAppSelector';
@@ -14,7 +16,7 @@ import useNavigateWithParams from '@/hooks/useNavigateWithParams';
 
 interface MenuItemProps {
   name: string;
-  image: string;
+  image?: string;
   onClick: () => void;
 }
 const MenuItem: FC<MenuItemProps> = ({ name, onClick, image }) => (
@@ -36,6 +38,8 @@ const MobileMenu = () => {
   const { opened } = useAppSelector(state => state.modalReducer);
   const { isAuth } = useAppSelector(state => state.userReducer);
   const { viewport } = useAppSelector(state => state.configReducer);
+
+  const showToolbar = CURRENT_THEME === 'sobankRedesign';
 
   const mobileMenuHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
@@ -67,26 +71,39 @@ const MobileMenu = () => {
       onClick={closeMobileMenu}
       aria-hidden
     >
-      <button className={styles.circle} onClick={mobileMenuHandler} type="button">
+      <button
+        className={`${styles[`circle__${CURRENT_THEME}`]}`}
+        onClick={mobileMenuHandler}
+        type="button"
+      >
         <span
           className={
             menuOpened
-              ? clsx(styles.burgerBtn, styles.burgerBtn__opened)
-              : styles.burgerBtn
+              ? clsx(
+                  `${styles[`burgerBtn__${CURRENT_THEME}`]}`,
+                  `${styles[`burgerBtn__${CURRENT_THEME}__opened`]}`,
+                )
+              : `${styles[`burgerBtn__${CURRENT_THEME}`]}`
           }
         />
       </button>
+
       <div
         className={
           menuOpened
-            ? clsx(styles.mobileMenu, styles.mobileMenu__active)
-            : styles.mobileMenu
+            ? clsx(
+                `${styles[`mobileMenu__${CURRENT_THEME}`]}`,
+                `${styles[`mobileMenu__${CURRENT_THEME}`]}__active`,
+              )
+            : `${styles[`mobileMenu__${CURRENT_THEME}`]}`
         }
         onClick={event => event.stopPropagation()}
         aria-hidden
       >
-        <div className={styles.menu}>
-          {menuLinks.map((el, index) => (
+        {showToolbar && <Toolbar />}
+
+        <div className={`${styles[`menu__${CURRENT_THEME}`]}`}>
+          {menuLinks[CURRENT_THEME].map((el, index) => (
             <MenuItem
               name={el.name}
               image={el.image}
@@ -94,6 +111,7 @@ const MobileMenu = () => {
               key={`${el.name}_${index + 1}`}
             />
           ))}
+
           <MenuItem
             name={isAuth ? 'Личный кабинет' : 'Войти'}
             image={authLogo}

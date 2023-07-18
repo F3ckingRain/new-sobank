@@ -1,5 +1,7 @@
 import React, { FC } from 'react';
 
+import clsx from 'clsx';
+
 import styles from './Advantages.module.scss';
 
 import CashBackSvg from '@/components/SVG/Products/CashBackSvg';
@@ -8,6 +10,7 @@ import HypothecSvg from '@/components/SVG/Products/HypothecSvg';
 import PercentSvg from '@/components/SVG/Products/PercentSvg';
 import PeriodSvg from '@/components/SVG/Products/PeriodSvg';
 import RefinancingSvg from '@/components/SVG/Products/RefinancingSvg';
+import { CURRENT_THEME } from '@/config/themeConfig';
 import { advantageType } from '@/themes/types';
 
 type AdvantagesProps = { type: advantageType; title: string; subtitle: string }[];
@@ -31,8 +34,8 @@ const renderAdvantageSvg = (type: advantageType) => {
   }
 };
 const Advantages: FC<{ list: AdvantagesProps }> = ({ list }) => (
-  <div className={styles.advantages}>
-    <div className={styles.advantages__title}>Преимущества</div>
+  <div className={clsx(styles.advantages, `${styles[`advantages__${CURRENT_THEME}`]}`)}>
+    <div className={`${styles[`advantages__title__${CURRENT_THEME}`]}`}>Преимущества</div>
     <div className={styles.advantages__content}>
       {list.map((el, index) => (
         <div className={styles.item} key={`${el.title}_${index + 1}`}>

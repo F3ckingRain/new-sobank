@@ -1,10 +1,12 @@
-import { DomainsName } from '@/themes/helpers';
+import { THEME } from '@/types/config';
 import { ProductType } from '@/types/product';
 
-export type DomainType = 'Sobank' | 'Onbank' | 'Sop';
-
-export type DomainProps<T> = { [key in DomainsName]: T };
+export type DomainProps<T> = { [key in THEME]: T };
 export type ProductProps<T> = { [key in ProductType | 'home_page']: T };
+
+export type HeaderProps = {
+  logo: string;
+};
 
 export type BannerProps = {
   title: string;

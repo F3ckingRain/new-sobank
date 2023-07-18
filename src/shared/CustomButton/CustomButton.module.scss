@@ -1,5 +1,27 @@
 @import "../../styles/mixins";
 
-.button {
-  @include ButtonMain;
+
+@include mobile-width {
+  .button {
+    &__sobank {
+      @include ButtonMain('&', $sobank-main-orange-color, $white, $sobank-main-font, 20px, normal, 700, 48px, 5px);
+    }
+
+    &__sobankRedesign {
+      @include ButtonMain('&', $redesign-blue_1, $white, $redesign-main-font, 16px, 24px, 700, 50px, 5px);
+    }
+  }
+}
+
+@include desktop-width {
+  .button {
+
+    &__sobank {
+      @include ButtonMain('&', $sobank-main-orange-color, $white, $sobank-main-font, 26px, normal, 700, 56px, 10px);
+    }
+
+    &__sobankRedesign {
+      @include ButtonMain('&', $redesign-blue_1, $white, $redesign-main-font, 16px, 24px, 700, 50px, 5px);
+    }
+  }
 }

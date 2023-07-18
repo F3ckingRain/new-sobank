@@ -15,12 +15,14 @@ export const Landing: LandingType = {
     sobankSu: '',
     firstCredit: '',
     onbank: '',
+    sobankRedesign: '',
   },
   favicon: {
     sobank: sobankFavicon,
     sobankSu: sobankFavicon,
     firstCredit: '',
     onbank: onbankFavicon,
+    sobankRedesign: '',
   },
   banner: {
     sobank: {
@@ -50,6 +52,20 @@ export const Landing: LandingType = {
       mfo: {},
       hypothec: {},
       car_credit: {},
+    },
+    sobankRedesign: {
+      home_page: {
+        title: '',
+        subtitle: '',
+        btnText: '',
+        image: '',
+      },
+      credit_card: { title: '', subtitle: '', btnText: '', image: '' },
+      credit_cash: { title: '', subtitle: '', btnText: '', image: '' },
+      car_credit: { title: '', subtitle: '', btnText: '', image: '' },
+      installment_card: { title: '', subtitle: '', btnText: '', image: '' },
+      mfo: { title: '', subtitle: '', btnText: '', image: '' },
+      hypothec: { title: '', subtitle: '', btnText: '', image: '' },
     },
   },
   loan: {
@@ -152,6 +168,15 @@ export const Landing: LandingType = {
       hypothec: {},
       car_credit: {},
     },
+    sobankRedesign: {
+      home_page: {},
+      credit_cash: {},
+      credit_card: {},
+      car_credit: {},
+      installment_card: {},
+      mfo: {},
+      hypothec: {},
+    },
   },
   footer: {
     sobank: {
@@ -194,6 +219,15 @@ export const Landing: LandingType = {
         },
       ],
       copyright: `Copyright © 2001–${getCurrentYear()} “Содействие банкам”. Все права защищены.`,
+    },
+    sobankRedesign: {
+      copyright: '',
+      accordions: [],
+      socials: {
+        subtitle: '',
+        title: '',
+        links: [],
+      },
     },
   },
 };

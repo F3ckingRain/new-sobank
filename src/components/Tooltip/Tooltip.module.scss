@@ -1,0 +1,17 @@
+@import "../../styles/mixins";
+
+.tooltip {
+
+}
+
+@include mobile-width {
+  .tooltip {
+
+  }
+}
+
+@include desktop-width {
+  .tooltip {
+
+  }
+}

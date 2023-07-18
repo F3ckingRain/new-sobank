@@ -2,13 +2,13 @@ import React from 'react';
 
 import Advantages from '@/components/Advantages/Advantages';
 import Banner from '@/components/Banner/Banner';
+import { CURRENT_THEME } from '@/config/themeConfig';
 import Wrapper from '@/containers/Wrapper/Wrapper';
-import { Landing } from '@/themes/config';
-import { currentDomain } from '@/themes/helpers';
+import { Landing } from '@/themes/theme';
 
 const CreditCardPage = () => {
-  const bannerProps = Landing.banner[currentDomain].credit_card;
-  const loanProps = Landing.loan[currentDomain].credit_card;
+  const bannerProps = Landing.banner[CURRENT_THEME].credit_card;
+  const loanProps = Landing.loan[CURRENT_THEME].credit_card;
 
   return (
     <>

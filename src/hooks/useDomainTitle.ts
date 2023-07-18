@@ -1,16 +1,16 @@
 import { useEffect } from 'react';
 
-import { DomainType } from '@/themes/types';
+import { THEME } from '@/types/config';
 
 type TitleType = 'Sobank' | 'Onbank' | 'Sop';
-const getDomainTitle = (domain: DomainType): TitleType => {
+const getDomainTitle = (domain: THEME): TitleType => {
   switch (domain) {
     default:
       return 'Sobank';
   }
 };
 const useDomainTitle = () => {
-  const domainTitle = getDomainTitle('Sobank');
+  const domainTitle = getDomainTitle('sobank');
 
   useEffect(() => {
     document.title = `${domainTitle} - получите лучшие условия онлайн.`;

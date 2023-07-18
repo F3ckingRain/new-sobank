@@ -44,7 +44,7 @@
 
   &__info {
     @include ContentSubtitle {
-      color: $support-gray-text-color;
+      color: $sobank-support-gray-text-color;
       text-align: center;
     };
   }
@@ -67,7 +67,7 @@
     width: 100%;
 
     @include ContentSubtitle {
-      color: $support-gray-text-color;
+      color: $sobank-support-gray-text-color;
     };
 
     &:last-child {

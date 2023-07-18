@@ -7,11 +7,11 @@ import styles from './Footer.module.scss';
 
 import Contacts from '@/components/Contacts/Contacts';
 import Socials from '@/components/Socials/Socials';
+import { CURRENT_THEME } from '@/config/themeConfig';
 import Wrapper from '@/containers/Wrapper/Wrapper';
 import useNavigateWithParams from '@/hooks/useNavigateWithParams';
 import Accordion from '@/shared/Accordion/Accordion';
-import { Landing } from '@/themes/config';
-import { currentDomain } from '@/themes/helpers';
+import { Landing } from '@/themes/theme';
 import { footerLinkType } from '@/themes/types';
 
 const renderAccordionContent = (content: string[] | footerLinkType[]) => {
@@ -46,14 +46,14 @@ const renderAccordionContent = (content: string[] | footerLinkType[]) => {
 };
 
 const Footer = () => {
-  const footerProps = Landing.footer[currentDomain];
+  const footerProps = Landing.footer[CURRENT_THEME];
 
   const socialsWrapperStyle: CSSProperties = {
     borderBottom: '1px solid #e7e7e7',
   };
 
   return (
-    <footer className={styles.footer}>
+    <footer className={`${styles[`footer__${CURRENT_THEME}`]}`}>
       <Wrapper style={socialsWrapperStyle}>
         <Socials {...footerProps.socials} />
       </Wrapper>

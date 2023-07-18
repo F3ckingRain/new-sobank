@@ -2,8 +2,6 @@
 
 .header {
   width: 100%;
-  max-height: 90px;
-  min-height: 90px;
 
   box-sizing: border-box;
 
@@ -14,6 +12,32 @@
   background-color: $white;
 
   z-index: 10;
+
+  &__sobank {
+    max-height: 90px;
+    min-height: 90px;
+  }
+
+  &__sobankRedesign {
+    max-height: 60px;
+    min-height: 60px;
+
+    box-shadow: 0 6px 12px 0 rgba(157, 177, 189, 0.25);
+  }
+}
+
+.sobankRedesign {
+  &__container {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__userLogo {
+    @include BackgroundImage;
+  }
 }
 
 @include mobile-width {
@@ -24,14 +48,25 @@
     padding: 16px;
 
     &__btnLogo {
-      width: 85px;
       height: 32px;
 
       border: none;
       outline: none;
 
-      @include BackgroundImage {
-        background-image: url("../../assets/Header/headerLogoSobank_mobile.svg");
+      &__sobank {
+        width: 85px;
+
+        @include BackgroundImage {
+          background-image: url("../../assets/Header/headerLogoSobank_mobile.svg");
+        };
+      }
+
+      &__sobankRedesign {
+        width: 83px;
+
+        @include BackgroundImage {
+          background-image: url("../../assets/Header/sobankRedesign/redesignLogo_mobile.svg");
+        }
       }
     }
   }
@@ -41,18 +76,74 @@
 
     box-sizing: border-box;
 
-    @include ButtonMain {
-      height: 38px;
+    white-space: pre-wrap;
 
-      font-size: 14px;
-      font-weight: 500;
-      white-space: pre-wrap;
+    &__sobank {
+      @include ButtonMain('&', $sobank-main-orange-color, $white, $sobank-main-font, 14px, normal, 500, 38px, 5px);
+    }
+
+    &__sobankRedesign {
+      display: none;
+    }
+  }
+
+  .sobankRedesign {
+    &__container {
+      justify-content: flex-end;
+      gap: 24px;
+    }
+
+    &__userLogo {
+      width: 24px;
+      height: 24px;
+
+      background-image: url("../../assets/Header/sobankRedesign/userLogo_mobile.svg");
+    }
+
+    &__cityBtn {
+      padding-right: 16px;
+
+      position: relative;
+
+      background-color: transparent;
+
+      @include BlockSubtitle('&', $redesign-main-font, $redesign-blue_1, 16px, 24px, 400);
+
+      @include Arrow('&', $redesign-blue_1, 180deg, 8px, 8px);
     }
   }
 }
 
 @include desktop-width {
   .header {
+    &__btnLogo {
 
+    }
+  }
+
+  .btnUnsubscribe {
+
+    &__sobank {
+
+    }
+
+    &__sobankRedesign {
+
+    }
+  }
+
+  .sobankRedesign {
+    &__container {
+
+    }
+
+    &__userLogo {
+      width: 44px;
+      height: 44px;
+
+      background-color: $redesign-blue_1;
+
+      border-radius: 50%;
+    }
   }
 }

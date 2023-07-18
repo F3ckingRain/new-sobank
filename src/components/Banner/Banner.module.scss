@@ -15,14 +15,6 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
-  &__title {
-    @include MainTitle;
-  }
-
-  &__subtitle {
-    @include MainSubtitle;
-  }
 }
 
 .imgContainer {
@@ -36,7 +28,7 @@
   align-items: center;
   justify-content: center;
 
-  background-color: $main-orange-color;
+  background-color: $sobank-main-orange-color;
 }
 
 @include mobile-width {
@@ -57,12 +49,17 @@
     justify-content: flex-end;
     gap: 12px;
 
+
     &__title {
       white-space: pre-wrap;
+
+      @include MainTitle('&', $sobank-main-font, 24px, 24px, 550, $white);
     }
 
     &__subtitle {
       white-space: pre-wrap;
+
+      @include MainSubtitle;
     }
   }
 
@@ -96,5 +93,12 @@
 @include desktop-width {
   .banner {
 
+  }
+
+  .content {
+
+    &__title {
+      @include MainTitle('&', $sobank-main-font, 30px, 24px, 550, $sobank-dark-text-color);
+    }
   }
 }

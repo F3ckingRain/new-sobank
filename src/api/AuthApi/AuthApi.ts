@@ -11,7 +11,7 @@ import {
   AutologinResponse,
   CodeConfirmRequest,
 } from '@/api/AuthApi/types';
-import { SERVER_URL } from '@/api/utils/utilsApi';
+import { SERVER_URL } from '@/config/urlConfig';
 
 export const AuthApi = createApi({
   reducerPath: 'auth',

@@ -1,0 +1,304 @@
+@import "../../styles/mixins";
+
+.mobileMenu {
+  &__sobank {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+
+    width: 100%;
+    min-height: 40vh;
+    max-height: 80vh;
+
+    display: flex;
+
+    background: linear-gradient(180deg, #FFFFFF 17.22%, #F1F1F1 68.13%);
+
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+    transition: all .5s ease-out;
+    transform: translateY(100%);
+
+    z-index: 10;
+
+    &__active {
+      box-shadow: 0px -30px 100px rgba(0, 0, 0, .6);
+      transform: translateY(0%);
+      transition: all .5s;
+    }
+  }
+
+  &__sobankRedesign {
+    position: fixed;
+  }
+}
+
+.menu {
+  &__sobank {
+    padding: 20px;
+    margin: auto 0 75px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+
+    width: 100%;
+
+    overflow-y: auto;
+  }
+
+  &__sobankRedesign {
+    display: flex;
+  }
+}
+
+.menuItem {
+  padding: 12px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+
+  background-color: $white;
+  box-shadow: 0 2px 6px rgba(38,53,104,.25);
+
+  border-radius: 5px;
+
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+  }
+
+  &__arrow {
+    position: relative;
+
+    width: 15px;
+    height: 15px;
+
+    @include BackgroundImage {
+      background-image: url("../../assets/Main/arrow.svg");
+    }
+  }
+}
+
+.content {
+  &__img {
+    min-height: 25px;
+    max-height: 25px;
+    min-width: 25px;
+    max-width: 25px;
+  }
+
+  &__name {
+    font-family: $sobank-support-font;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    color: $sobank-dark-text-color;
+  }
+}
+
+.circle {
+  &__sobank {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transform: translateX(-50%);
+    transition: transform .5s ease-in-out;
+
+    width: 50px;
+    height: 50px;
+
+    background-color: $white;
+    box-shadow: 0 8px 8px rgba(1,9,38,.5);;
+
+    border: 2px solid $sobank-dark-blue-color;
+    border-radius: 50%;
+
+    z-index: 11;
+  }
+
+  &__sobankRedesign {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 70px;
+    height: 70px;
+
+    border-radius: 50%;
+
+    transform: translateX(-50%);
+
+    fill: rgba(231, 239, 245, 0.90);
+
+    z-index: 20;
+  }
+}
+
+.burgerBtn {
+  &__sobank {
+    position: relative;
+
+    width: 20px;
+    height: 3px;
+
+    background-color: $sobank-dark-blue-color;
+
+    border-radius: 10px;
+
+    &:before,&:after {
+      content: '';
+
+      position: absolute;
+      left: 0;
+
+      width: 20px;
+      height: 3px;
+
+      background-color: $sobank-dark-blue-color;
+
+      border-radius: 10px;
+
+      transition: all .5s ease-in-out;
+    }
+
+    &:before {
+      top: 8px;
+    }
+
+    &:after {
+      top: -8px;
+    }
+
+    &__opened {
+      height: 0;
+
+      &:before, &:after {
+        top: -1px;
+        left: 0;
+
+        transform-origin: center;
+      }
+
+      &:before {
+        rotate: -45deg;
+      }
+
+      &:after {
+        rotate: 45deg;
+      }
+    }
+  }
+
+  &__sobankRedesign {
+    position: relative;
+
+    width: 58px;
+    height: 58px;
+
+    border: 1px solid $white;
+    border-radius: 50%;
+
+    filter: drop-shadow(0px 0px 7px rgba(255, 255, 255, 0.40));
+    backdrop-filter: blur(5px);
+
+    @include BackgroundImage {
+      background-image: url("../../assets/MobileMenu/Redesign/menu_sobankRedesign.svg");
+      background-color: $redesign-blue_1;
+      background-size: 24px 24px;
+    }
+
+    &__opened {
+      @include BackgroundImage {
+        background-image: url("../../assets/MobileMenu/Redesign/closeMenu_sobankRedesign.svg");
+        background-color: $redesign-blue_1;
+        background-size: 24px 24px;
+      }
+    }
+  }
+}
+
+.toolbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  width: 100%;
+  height: 60px;
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr;
+
+  box-sizing: border-box;
+
+  border-radius: 30px 30px 0 0;
+
+  background-color: $white;
+
+  filter: drop-shadow(0px -6px 12px rgba(157, 177, 189, 0.25));
+
+  box-shadow: 0 -12px 17px rgba(157, 177, 189, 0.1), 0 -5px 22px rgba(157, 177, 189, 0.08),
+  0 -7px 8px rgba(157, 177, 189, 0.1);
+
+  z-index: 10;
+
+  &__item {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: transparent;
+
+    &:last-child {
+      grid-column: 5/5;
+    }
+
+    &:nth-child(3) {
+      grid-column: 4/4;
+    }
+  }
+
+  &__svgContainer {
+    width: 24px;
+    height: 24px;
+  }
+
+  &__name {
+
+  }
+
+  &__active {
+    color: $redesign-blue_1;
+  }
+}
+
+@include desktop-width {
+  .modalContainer {
+    display: none;
+  }
+}

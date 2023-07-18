@@ -4,8 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "vite --config config/vite.config.ts",
-    "build": "tsc && vite build --config config/vite.config.ts",
+    "start:dev": "yarn run dev vite --config config/vite.config.ts",
+    "build:dev": "yarn run dev tsc && vite build --config config/vite.config.ts",
+    "start:prod": "yarn run prod yarn run vite --config config/vite.config.ts",
+    "build:prod": "yarn run prod yarn run vite --config config/vite.config.ts",
+    "start:new-design": "VITE_THEME=sobankRedesign VITE_BACKEND=dev yarn run vite --config config/vite.config.ts",
     "docker:dev": "sudo docker-compose -f ../docker-compose.yml up -d --force-recreate sovbank",
     "prettier": "prettier -w src",
     "lint": "yarn run prettier && eslint \"**/*.{js,ts,tsx}\" --ignore-pattern node_modules/ --fix",

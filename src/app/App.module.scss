@@ -1,11 +1,23 @@
 @import "../styles/mixins";
 
 .main {
+  .sobank {
 
+  }
+
+  .sobankRedesign {
+
+  }
 }
 
 @include mobile-width {
   .main {
-    padding-top: 90px;
+    &__sobank {
+      padding-top: 90px;
+    }
+
+    &__sobankRedesign {
+      padding-top: 60px;
+    }
   }
 }

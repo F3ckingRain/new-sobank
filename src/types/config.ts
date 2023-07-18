@@ -4,4 +4,4 @@ export type AUTH_TYPE = 'default' | 'mts';
 
 export type BACKEND = 'prod' | 'dev' | 'test' | 'local';
 
-export type THEME = 'sobank' | 'onbank' | 'firstCredit';
+export type THEME = 'sobank' | 'onbank' | 'firstCredit' | 'sobankRedesign' | 'sobankSu';

@@ -35,10 +35,10 @@
 }
 
 .text {
-  font-family: $support-font;
+  font-family: $sobank-support-font;
   font-weight: 400;
   line-height: normal;
-  color: $support-gray-text-color;
+  color: $sobank-support-gray-text-color;
 }
 
 @include mobile-width {

@@ -4,12 +4,15 @@ import clsx from 'clsx';
 
 import styles from './CustomButton.module.scss';
 
+import { CURRENT_THEME } from '@/config/themeConfig';
+
 export interface CustomButtonProps {
   children: React.ReactNode;
   onClick?: () => void;
   style?: CSSProperties;
   additionalClassname?: string;
 }
+
 const CustomButton: FC<CustomButtonProps> = ({
   children,
   onClick,
@@ -18,7 +21,7 @@ const CustomButton: FC<CustomButtonProps> = ({
 }) => (
   <button
     type="button"
-    className={clsx(styles.button, additionalClassname)}
+    className={clsx(`${styles[`button__${CURRENT_THEME}`]}`, additionalClassname)}
     style={style}
     onClick={onClick}
   >

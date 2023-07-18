@@ -1,7 +1,13 @@
 @import "../../styles/mixins";
 
 .footer {
-  box-shadow: 0 2px 5px 0 rgba(38, 53, 104, 0.25);
+  &__sobank {
+    box-shadow: 0 2px 5px 0 rgba(38, 53, 104, 0.25);
+  }
+
+  &__sobankRedesign {
+
+  }
 }
 
 .accordions {
@@ -32,15 +38,22 @@
 }
 
 .copyright {
-  font-family: $support-font;
-  color: $gray-text-color;
+  font-family: $sobank-support-font;
+  color: $sobank-gray-text-color;
   font-weight: 400;
 }
 
 @include mobile-width {
   .footer {
-    margin-top: 40px;
-    padding: 16px 0 20px;
+    &__sobank {
+      margin-top: 40px;
+      padding: 16px 0 20px;
+    }
+
+    &__sobankRedesign {
+      margin-top: 40px;
+      padding: 16px 0 108px;
+    }
   }
 
   .accordions {

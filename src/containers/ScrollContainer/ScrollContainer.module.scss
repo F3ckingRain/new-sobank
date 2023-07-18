@@ -11,7 +11,7 @@
   overflow-x: auto;
   overflow-y: hidden;
 
-  @include ScrollBar;
+  @include ScrollBar($sobank-main-blue-color);
 }
 
 .navScrollContainer {
@@ -53,7 +53,7 @@
 
   border-radius: 50%;
 
-  background-color: $gray-text-color;
+  background-color: $sobank-gray-text-color;
 
   cursor: pointer;
 

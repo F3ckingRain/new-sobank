@@ -7,13 +7,13 @@ import InstallmentPartners from '@/components/InstallmentPartners/InstallmentPar
 import MainBlock from '@/components/MainBlock/MainBlock';
 import OurServices from '@/components/OurServices/OurServices';
 import PopularProducts from '@/components/PopularProducts/PopularProducts';
+import { CURRENT_THEME } from '@/config/themeConfig';
 import Wrapper from '@/containers/Wrapper/Wrapper';
-import { Landing } from '@/themes/config';
-import { currentDomain } from '@/themes/helpers';
+import { Landing } from '@/themes/theme';
 
 const HomePage = () => {
-  const bannerProps = Landing.banner[currentDomain].home_page;
-  const loanProps = Landing.loan[currentDomain].home_page;
+  const bannerProps = Landing.banner[CURRENT_THEME].home_page;
+  const loanProps = Landing.loan[CURRENT_THEME].home_page;
 
   return (
     <>
