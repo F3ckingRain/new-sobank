@@ -67,7 +67,29 @@ const menuLinks: DomainProps<Array<menuLink>> = {
       image: hypothecLogo,
     },
   ],
-  sobankRedesign: [],
+  sobankRedesign: [
+    {
+      name: 'Кредит наличными',
+      path: 'credit_cash/info',
+    },
+    {
+      name: 'Кредитные карты',
+      path: 'credit_card/info',
+    },
+
+    {
+      name: 'Карта рассрочки',
+      path: 'installment_card/info',
+    },
+    {
+      name: 'Отписаться от звонков',
+      path: 'mfo/info',
+    },
+    {
+      name: 'Ипотека',
+      path: 'hypothec/info',
+    },
+  ],
   firstCredit: [],
   onbank: [],
 };
@@ -78,4 +100,5 @@ export const toolbarLinks: menuLink[] = [
   { name: 'Автокредит', path: '/car_credit/info' },
   { name: 'Ипотека', path: '/hypothec/info' },
 ];
+
 export default menuLinks;

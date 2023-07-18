@@ -14,7 +14,7 @@
   }
 
   &__title {
-    @include BlockTitle;
+    @include MainText('&', $sobank-main-font, 12px, normal, 500, $sobank-dark-text-color);
   }
 }
 

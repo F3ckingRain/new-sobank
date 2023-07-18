@@ -1,66 +1,123 @@
 @import "../../styles/mixins";
 
 .socialsBlock {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  &__sobank {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-  &__title {
-    text-align: center;
-    @include ContentTitle;
+    &__title {
+      text-align: center;
+      @include MainText('&', $sobank-main-font, 12px, normal, 500, $sobank-dark-text-color);
+    }
+
+    &__subtitle {
+      text-align: center;
+      @include MainText('&', $sobank-main-font, 12px, normal, 500, $sobank-dark-text-color);
+    }
   }
 
-  &__subtitle {
-    text-align: center;
-    @include ContentSubtitle;
+  &__sobankRedesign {
+    padding: 0 28px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+
+    &__title {
+      text-align: center;
+
+      @include MainText('&', $sobank-main-font, 12px, normal, 500, $sobank-dark-text-color);
+    }
+
+    &__subtitle {
+      display: none;
+    }
   }
 }
 
 .links {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
+  &__sobank {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  &__sobankRedesign {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+  }
 }
 
 .linkItem {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  &__sobank {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 
-  border-radius: 20px;
+    border-radius: 20px;
 
-  background-color: $white;
+    background-color: $white;
 
-  box-shadow: 0 2px 5px 0 rgba(38, 53, 104, 0.25);
+    box-shadow: 0 2px 5px 0 rgba(38, 53, 104, 0.25);
 
-  text-decoration: none;
+    text-decoration: none;
 
-  &__name {
-    @include ContentTitle;
+    &__name {
+      @include MainText('&', $sobank-main-font, 12px, normal, 500, $sobank-dark-text-color);
+    }
+  }
+
+  &__sobankRedesign {
+
   }
 }
 
 @include mobile-width {
   .socialsBlock {
-    padding: 16px 0;
+    &__sobank {
+      padding: 16px 0;
 
-    gap: 8px;
+      gap: 8px;
+    }
+
+    &__sobankRedesign {
+
+    }
   }
 
   .linkItem {
-    padding: 0 8px;
+    &__sobank {
+      padding: 0 8px;
 
-    gap: 4px;
+      gap: 4px;
 
-    height: 30px;
+      height: 30px;
 
-    &__img {
-      width: 17px;
-      height: 17px;
+      &__img {
+        width: 17px;
+        height: 17px;
+      }
+    }
+
+    &__sobankRedesign {
+
+      &__img {
+        width: 32px;
+        height: 32px;
+      }
+
+      &__name {
+        display: none;
+      }
     }
   }
 }

@@ -31,6 +31,9 @@
 
   &__sobankRedesign {
     position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 }
 
@@ -50,60 +53,109 @@
   }
 
   &__sobankRedesign {
+    position: fixed;
+    bottom: 64px;
+    left: 16px;
+    right: 16px;
+
+    padding: 32px 0 40px;
+
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+
+    background-color: $white;
+
+    border-radius: 30px;
+
+    transform: translateY(100%);
+    transition: transform .3s ease-in-out;
+
+    &__opened {
+      transform: translateY(0);
+      transition: transform .3s ease-in-out;
+    }
   }
 }
 
 .menuItem {
-  padding: 12px;
+  &__sobank {
+    padding: 12px;
 
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-
-  width: 100%;
-
-  background-color: $white;
-  box-shadow: 0 2px 6px rgba(38,53,104,.25);
-
-  border-radius: 5px;
-
-
-  &__content {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: flex-start;
-    gap: 12px;
+    justify-content: space-between;
+
+    width: 100%;
+
+    background-color: $white;
+    box-shadow: 0 2px 6px rgba(38,53,104,.25);
+
+    border-radius: 5px;
+
+
+    &__content {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 12px;
+    }
+
+    &__arrow {
+      position: relative;
+
+      width: 15px;
+      height: 15px;
+
+      @include BackgroundImage {
+        background-image: url("../../assets/Main/arrow.svg");
+      }
+    }
   }
 
-  &__arrow {
-    position: relative;
+  &__sobankRedesign {
+    background-color: transparent;
 
-    width: 15px;
-    height: 15px;
+    &__content {
+      padding: 0;
+    }
 
-    @include BackgroundImage {
-      background-image: url("../../assets/Main/arrow.svg");
+    &__arrow {
+      display: none;
     }
   }
 }
 
 .content {
-  &__img {
-    min-height: 25px;
-    max-height: 25px;
-    min-width: 25px;
-    max-width: 25px;
+  &__sobank {
+    &__img {
+      min-height: 25px;
+      max-height: 25px;
+      min-width: 25px;
+      max-width: 25px;
+    }
+
+    &__name {
+      font-family: $sobank-support-font;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: normal;
+      color: $sobank-dark-text-color;
+    }
   }
 
-  &__name {
-    font-family: $sobank-support-font;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: normal;
-    color: $sobank-dark-text-color;
+  &__sobankRedesign {
+    &__img {
+      display: none;
+    }
+
+    &__name {
+      @include MainText('&', $sobank-main-font, 12px, normal, 500, $sobank-dark-text-color);
+    }
   }
 }
 
@@ -221,6 +273,8 @@
     filter: drop-shadow(0px 0px 7px rgba(255, 255, 255, 0.40));
     backdrop-filter: blur(5px);
 
+    transition: all .3s ease-in-out;
+
     @include BackgroundImage {
       background-image: url("../../assets/MobileMenu/Redesign/menu_sobankRedesign.svg");
       background-color: $redesign-blue_1;
@@ -230,70 +284,10 @@
     &__opened {
       @include BackgroundImage {
         background-image: url("../../assets/MobileMenu/Redesign/closeMenu_sobankRedesign.svg");
-        background-color: $redesign-blue_1;
+        background-color: $white;
         background-size: 24px 24px;
       }
     }
-  }
-}
-
-.toolbar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-
-  width: 100%;
-  height: 60px;
-
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: 1fr;
-
-  box-sizing: border-box;
-
-  border-radius: 30px 30px 0 0;
-
-  background-color: $white;
-
-  filter: drop-shadow(0px -6px 12px rgba(157, 177, 189, 0.25));
-
-  box-shadow: 0 -12px 17px rgba(157, 177, 189, 0.1), 0 -5px 22px rgba(157, 177, 189, 0.08),
-  0 -7px 8px rgba(157, 177, 189, 0.1);
-
-  z-index: 10;
-
-  &__item {
-    width: 100%;
-    height: 100%;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    background-color: transparent;
-
-    &:last-child {
-      grid-column: 5/5;
-    }
-
-    &:nth-child(3) {
-      grid-column: 4/4;
-    }
-  }
-
-  &__svgContainer {
-    width: 24px;
-    height: 24px;
-  }
-
-  &__name {
-
-  }
-
-  &__active {
-    color: $redesign-blue_1;
   }
 }
 

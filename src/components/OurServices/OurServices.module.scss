@@ -6,7 +6,7 @@
   align-items: flex-start;
 
   &__title {
-    @include BlockTitle;
+    @include MainText('&', $sobank-main-font, 12px, normal, 500, $sobank-dark-text-color);
   }
 
   &__list {
@@ -39,7 +39,7 @@
 
 .text {
   text-align: center;
-  @include ContentSubtitle;
+  @include MainText('&', $sobank-main-font, 12px, normal, 500, $sobank-dark-text-color);
 }
 
 @include mobile-width {

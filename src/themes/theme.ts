@@ -224,9 +224,13 @@ export const Landing: LandingType = {
       copyright: '',
       accordions: [],
       socials: {
-        subtitle: '',
         title: '',
-        links: [],
+        subtitle: '',
+        links: [
+          { name: 'Viber', link: '', image: 'viber' },
+          { name: 'Telegram', link: '', image: 'telegram' },
+          { name: 'ВКонтакте', link: '', image: 'vk' },
+        ],
       },
     },
   },

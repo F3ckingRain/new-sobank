@@ -6,8 +6,9 @@ import authLogo from '../../assets/MobileMenu/Sobank/mobileMenu_auth.svg';
 
 import styles from './MobileMenu.module.scss';
 
+import MenuSocials from '@/components/MobileMenu/components/MenuSocials/MenuSocials';
+import Toolbar from '@/components/MobileMenu/components/Toolbar/Toolbar';
 import menuLinks from '@/components/MobileMenu/data';
-import Toolbar from '@/components/MobileMenu/Toolbar';
 import { CURRENT_THEME } from '@/config/themeConfig';
 import { OpenAuthModal } from '@/features/AuthFeature';
 import useAppDispatch from '@/hooks/useAppDispatch';
@@ -20,12 +21,16 @@ interface MenuItemProps {
   onClick: () => void;
 }
 const MenuItem: FC<MenuItemProps> = ({ name, onClick, image }) => (
-  <button className={styles.menuItem} onClick={onClick} type="button">
-    <div className={styles.menuItem__content}>
-      <img src={image} alt="" className={styles.content__img} />
-      <div className={styles.content__name}>{name}</div>
+  <button
+    className={`${styles[`menuItem__${CURRENT_THEME}`]}`}
+    onClick={onClick}
+    type="button"
+  >
+    <div className={`${styles[`menuItem__${CURRENT_THEME}__content`]}`}>
+      <img className={`${styles[`content__${CURRENT_THEME}__img`]}`} src={image} alt="" />
+      <div className={`${styles[`content__${CURRENT_THEME}__name`]}`}>{name}</div>
     </div>
-    <div className={styles.menuItem__arrow} />
+    <div className={`${styles[`menuItem__${CURRENT_THEME}__arrow`]}`} />
   </button>
 );
 
@@ -39,7 +44,7 @@ const MobileMenu = () => {
   const { isAuth } = useAppSelector(state => state.userReducer);
   const { viewport } = useAppSelector(state => state.configReducer);
 
-  const showToolbar = CURRENT_THEME === 'sobankRedesign';
+  const newDesignMenu = CURRENT_THEME === 'sobankRedesign';
 
   const mobileMenuHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
@@ -93,16 +98,27 @@ const MobileMenu = () => {
           menuOpened
             ? clsx(
                 `${styles[`mobileMenu__${CURRENT_THEME}`]}`,
-                `${styles[`mobileMenu__${CURRENT_THEME}`]}__active`,
+                `${styles[`mobileMenu__${CURRENT_THEME}__active`]}`,
               )
             : `${styles[`mobileMenu__${CURRENT_THEME}`]}`
         }
         onClick={event => event.stopPropagation()}
         aria-hidden
       >
-        {showToolbar && <Toolbar />}
+        {newDesignMenu && <Toolbar />}
 
-        <div className={`${styles[`menu__${CURRENT_THEME}`]}`}>
+        <div
+          className={
+            menuOpened
+              ? clsx(
+                  `${styles[`menu__${CURRENT_THEME}`]}`,
+                  `${styles[`menu__${CURRENT_THEME}__opened`]}`,
+                )
+              : `${styles[`menu__${CURRENT_THEME}`]}`
+          }
+        >
+          {newDesignMenu && <MenuSocials />}
+
           {menuLinks[CURRENT_THEME].map((el, index) => (
             <MenuItem
               name={el.name}
@@ -112,11 +128,13 @@ const MobileMenu = () => {
             />
           ))}
 
-          <MenuItem
-            name={isAuth ? 'Личный кабинет' : 'Войти'}
-            image={authLogo}
-            onClick={authHandler}
-          />
+          {!newDesignMenu && (
+            <MenuItem
+              name={isAuth ? 'Личный кабинет' : 'Войти'}
+              image={authLogo}
+              onClick={authHandler}
+            />
+          )}
         </div>
       </div>
     </div>

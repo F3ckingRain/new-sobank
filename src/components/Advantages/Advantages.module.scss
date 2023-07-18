@@ -4,7 +4,7 @@
   display: flex;
 
   &__title {
-    @include BlockTitle;
+    @include MainText('&', $sobank-main-font, 12px, normal, 500, $sobank-dark-text-color);
   }
 
   &__content {
@@ -44,11 +44,11 @@
   }
 
   &__title {
-    @include ContentTitle;
+    @include MainText('&', $sobank-main-font, 12px, normal, 500, $sobank-dark-text-color);
   }
 
   &__subtitle {
-    @include ContentSubtitle;
+    @include MainText('&', $sobank-main-font, 12px, normal, 500, $sobank-dark-text-color);
   }
 }
 

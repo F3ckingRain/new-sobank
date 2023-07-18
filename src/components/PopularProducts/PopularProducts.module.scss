@@ -6,7 +6,7 @@
   align-items: flex-start;
 
   &__title {
-    @include BlockTitle;
+    @include MainText('&', $sobank-main-font, 12px, normal, 500, $sobank-dark-text-color);
   }
 }
 
@@ -32,11 +32,11 @@
   white-space: pre-wrap;
 
   &__title {
-    @include ContentTitle;
+    @include MainText('&', $sobank-main-font, 12px, normal, 500, $sobank-dark-text-color);
   }
 
   &__subtitle {
-    @include ContentSubtitle;
+    @include MainText('&', $sobank-main-font, 12px, normal, 500, $sobank-dark-text-color);
   }
 }
 

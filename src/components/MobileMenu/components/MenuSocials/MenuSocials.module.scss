@@ -1,0 +1,81 @@
+@import "../../../../styles/mixins";
+
+.socials {
+  &__sobank {
+
+  }
+
+  &__sobankRedesign {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+
+    &__contacts {
+      padding: 0 28px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+  }
+}
+
+.links {
+  &__sobank {
+
+  }
+
+  &__sobankRedesign {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.contacts {
+  &__sobank {
+
+  }
+
+  &__sobankRedesign {
+    padding: 0 28px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+}
+
+.divider {
+  &__sobank {
+
+  }
+
+  &__sobankRedesign {
+    width: 100%;
+    height: 1px;
+
+    background-color: #E8F0F6;
+  }
+}
+
+.socials {
+  &__sobank {
+
+  }
+
+  &__sobankRedesign {
+
+    &__text {
+      text-align: center;
+
+      @include MainText('&', $sobank-main-font, 12px, normal, 500, $sobank-dark-text-color);
+    }
+  }
+}

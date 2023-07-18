@@ -13,7 +13,7 @@
 
     border-radius: 50%;
 
-    @include BlockTitle;
+    @include MainText('&', $sobank-main-font, 12px, normal, 500, $sobank-dark-text-color);
   }
 
   &__text {

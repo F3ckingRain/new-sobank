@@ -49,7 +49,7 @@
 .label {
   padding: 0 0 4px 8px;
 
-  @include labelText;
+  @include MainText('&', $sobank-main-font, 12px, normal, 500, $sobank-dark-text-color);
 }
 
 @include mobile-width {

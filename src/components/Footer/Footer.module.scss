@@ -16,7 +16,7 @@
   align-items: flex-start;
 
   &__text {
-    @include ContentSubtitle;
+    @include MainText('&', $sobank-main-font, 12px, normal, 500, $sobank-dark-text-color);
   }
 
   &__link {
@@ -25,7 +25,7 @@
 
     background-color: transparent;
 
-    @include ContentSubtitle;
+    @include MainText('&', $sobank-main-font, 12px, normal, 500, $sobank-dark-text-color);
 
     &:disabled {
       text-decoration: none;

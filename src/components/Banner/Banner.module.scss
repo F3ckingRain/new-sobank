@@ -53,13 +53,13 @@
     &__title {
       white-space: pre-wrap;
 
-      @include MainTitle('&', $sobank-main-font, 24px, 24px, 550, $white);
+      @include MainText('&', $sobank-main-font, 12px, normal, 500, $sobank-dark-text-color);
     }
 
     &__subtitle {
       white-space: pre-wrap;
 
-      @include MainSubtitle;
+      @include MainText('&', $sobank-main-font, 12px, normal, 500, $sobank-dark-text-color);
     }
   }
 
@@ -98,7 +98,7 @@
   .content {
 
     &__title {
-      @include MainTitle('&', $sobank-main-font, 30px, 24px, 550, $sobank-dark-text-color);
+      @include MainText('&', $sobank-main-font, 12px, normal, 500, $sobank-dark-text-color);
     }
   }
 }

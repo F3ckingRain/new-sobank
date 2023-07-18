@@ -4,16 +4,41 @@
   margin: 0;
 
   position: relative;
+
+  &__sobank {
+
+  }
+
+  &__sobankRedesign {
+
+  }
 }
 
 @include mobile-width {
   .wrapper {
     padding: 0 20px;
+
+    position: relative;
+
+    &__sobank {
+
+    }
+
+    &__sobankRedesign {
+
+    }
   }
 }
 
 @include desktop-width {
   .wrapper {
 
+    &__sobank {
+
+    }
+
+    &__sobankRedesign {
+
+    }
   }
 }

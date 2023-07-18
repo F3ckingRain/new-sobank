@@ -2,7 +2,7 @@ import React from 'react';
 
 import clsx from 'clsx';
 
-import styles from './MobileMenu.module.scss';
+import styles from './Toolbar.module.scss';
 
 import { toolbarLinks } from '@/components/MobileMenu/data';
 import MobileMenuCardSvg from '@/components/SVG/MobileMenu/MobileMenuCardSvg';

@@ -142,10 +142,7 @@
   .content {
 
     &__phoneTitle {
-      @include ContentTitle {
-        font-size: 15px;
-        font-weight: 500;
-      }
+      @include MainText('&', $sobank-main-font, 12px, normal, 500, $sobank-dark-text-color);
     }
 
     &__changingPhoneBtn {
@@ -175,10 +172,7 @@
   .content {
 
     &__phoneTitle {
-      @include ContentTitle {
-        font-size: 24px;
-        font-weight: 500;
-      }
+      @include MainText('&', $sobank-main-font, 12px, normal, 500, $sobank-dark-text-color);
     }
 
     &__changingPhoneBtn {

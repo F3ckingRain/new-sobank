@@ -13,9 +13,8 @@
   border-radius: 5px;
 
   &__title {
-    @include BlockTitle {
-      text-align: center;
-    };
+    text-align: center;
+    @include MainText('&', $sobank-main-font, 12px, normal, 500, $sobank-dark-text-color);
   }
 }
 

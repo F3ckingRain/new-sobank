@@ -11,11 +11,11 @@
   }
 
   &__title {
-    @include BlockTitle;
+    @include MainText('&', $sobank-main-font, 12px, normal, 500, $sobank-dark-text-color);
   }
 
   &__subtitle {
-    @include ContentSubtitle;
+    @include MainText('&', $sobank-main-font, 12px, normal, 500, $sobank-dark-text-color);
   }
 }
 
@@ -43,10 +43,9 @@
   }
 
   &__info {
-    @include ContentSubtitle {
-      color: $sobank-support-gray-text-color;
-      text-align: center;
-    };
+    text-align: center;
+
+    @include MainText('&', $sobank-main-font, 12px, normal, 500, $sobank-dark-text-color);
   }
 }
 
@@ -66,9 +65,7 @@
   &__text {
     width: 100%;
 
-    @include ContentSubtitle {
-      color: $sobank-support-gray-text-color;
-    };
+    @include MainText('&', $sobank-main-font, 12px, normal, 500, $sobank-dark-text-color);
 
     &:last-child {
       text-align: center;
@@ -130,7 +127,7 @@
 
   text-align: start;
 
-  @include ContentTitle;
+  @include MainText('&', $sobank-main-font, 12px, normal, 500, $sobank-dark-text-color);
 }
 
 @include mobile-width {
@@ -159,10 +156,7 @@
   }
 
   .text {
-    @include ContentTitle {
-      font-size: 13px;
-      font-weight: 550;
-    };
+    @include MainText('&', $sobank-main-font, 12px, normal, 500, $sobank-dark-text-color);
   }
 }
 
@@ -176,8 +170,6 @@
   }
 
   .text {
-    @include ContentTitle {
-      font-weight: 550;
-    }
+    @include MainText('&', $sobank-main-font, 12px, normal, 500, $sobank-dark-text-color);
   }
 }

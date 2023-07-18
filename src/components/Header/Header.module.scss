@@ -107,7 +107,7 @@
 
       background-color: transparent;
 
-      @include BlockSubtitle('&', $redesign-main-font, $redesign-blue_1, 16px, 24px, 400);
+      @include MainText('&', $redesign-main-font, 16px, 24px, 400, $redesign-blue_1);
 
       @include Arrow('&', $redesign-blue_1, 180deg, 8px, 8px);
     }
