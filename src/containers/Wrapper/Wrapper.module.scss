@@ -16,16 +16,14 @@
 
 @include mobile-width {
   .wrapper {
-    padding: 0 20px;
-
     position: relative;
 
     &__sobank {
-
+      padding: 0 20px;
     }
 
     &__sobankRedesign {
-
+      padding: 0 16px;
     }
   }
 }

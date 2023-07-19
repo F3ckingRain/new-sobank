@@ -57,7 +57,7 @@ const Header = () => {
       {showNewDesignHeader && (
         <div className={styles.sobankRedesign__container}>
           {showCityChanger ? (
-            <button className={styles.sobankRedesign__cityBtn}>name</button>
+            <button className={styles.sobankRedesign__cityBtn}>Москва</button>
           ) : (
             <Tooltip />
           )}

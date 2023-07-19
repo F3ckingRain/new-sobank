@@ -224,8 +224,8 @@ export const Landing: LandingType = {
       copyright: '',
       accordions: [],
       socials: {
-        title: '',
-        subtitle: '',
+        title: 'Хотите получать в будущем уже\nготовые одобренные предложения?',
+        subtitle: '+7(495)-128-83-34\nsupport@card-online.su',
         links: [
           { name: 'Viber', link: '', image: 'viber' },
           { name: 'Telegram', link: '', image: 'telegram' },

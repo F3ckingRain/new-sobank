@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 
 import Banner from '@/components/Banner/Banner';
 import Exchange from '@/components/Exchange/Exchange';
@@ -15,9 +15,12 @@ const HomePage = () => {
   const bannerProps = Landing.banner[CURRENT_THEME].home_page;
   const loanProps = Landing.loan[CURRENT_THEME].home_page;
 
+  const bannerWrapperStyle: CSSProperties =
+    CURRENT_THEME === 'sobankRedesign' ? {} : { padding: 0 };
+
   return (
     <>
-      <Wrapper style={{ padding: 0 }}>
+      <Wrapper style={bannerWrapperStyle}>
         <Banner {...bannerProps} imageStyle={{ right: 3, bottom: 35 }} />
       </Wrapper>
 

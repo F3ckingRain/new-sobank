@@ -48,9 +48,13 @@ const renderAccordionContent = (content: string[] | footerLinkType[]) => {
 const Footer = () => {
   const footerProps = Landing.footer[CURRENT_THEME];
 
-  const socialsWrapperStyle: CSSProperties = {
-    borderBottom: '1px solid #e7e7e7',
-  };
+  const isNewDesign = CURRENT_THEME === 'sobankRedesign';
+
+  const socialsWrapperStyle: CSSProperties = isNewDesign
+    ? {}
+    : {
+        borderBottom: '1px solid #e7e7e7',
+      };
 
   return (
     <footer className={`${styles[`footer__${CURRENT_THEME}`]}`}>

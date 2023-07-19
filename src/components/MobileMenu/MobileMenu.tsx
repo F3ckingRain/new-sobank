@@ -6,14 +6,15 @@ import authLogo from '../../assets/MobileMenu/Sobank/mobileMenu_auth.svg';
 
 import styles from './MobileMenu.module.scss';
 
-import MenuSocials from '@/components/MobileMenu/components/MenuSocials/MenuSocials';
 import Toolbar from '@/components/MobileMenu/components/Toolbar/Toolbar';
 import menuLinks from '@/components/MobileMenu/data';
+import Socials from '@/components/Socials/Socials';
 import { CURRENT_THEME } from '@/config/themeConfig';
 import { OpenAuthModal } from '@/features/AuthFeature';
 import useAppDispatch from '@/hooks/useAppDispatch';
 import useAppSelector from '@/hooks/useAppSelector';
 import useNavigateWithParams from '@/hooks/useNavigateWithParams';
+import { Landing } from '@/themes/theme';
 
 interface MenuItemProps {
   name: string;
@@ -117,7 +118,7 @@ const MobileMenu = () => {
               : `${styles[`menu__${CURRENT_THEME}`]}`
           }
         >
-          {newDesignMenu && <MenuSocials />}
+          {newDesignMenu && <Socials {...Landing.footer[CURRENT_THEME].socials} />}
 
           {menuLinks[CURRENT_THEME].map((el, index) => (
             <MenuItem

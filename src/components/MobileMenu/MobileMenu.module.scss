@@ -154,7 +154,7 @@
     }
 
     &__name {
-      @include MainText('&', $sobank-main-font, 12px, normal, 500, $sobank-dark-text-color);
+      @include MainText('&', $redesign-main-font, 20px, 28px, 700, $redesign-black);
     }
   }
 }
