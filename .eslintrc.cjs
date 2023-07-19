@@ -94,9 +94,9 @@ module.exports = {
   },
   "settings": {
     "import/resolver": {
-      typescript: {},
-      alias: {
-        map: ['@', './src']
+      "typescript": {},
+      "alias": {
+        "map": ["@", "./src"]
       },
       "node": {
         "paths": ["src"],
