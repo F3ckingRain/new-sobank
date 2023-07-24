@@ -1,20 +1,26 @@
 @import "../../styles/mixins";
 
 .installmentPartners {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  &__sobank {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-  background-color: $white;
+    background-color: $white;
 
-  box-shadow: 0 2px 5px 0 rgba(38, 53, 104, 0.25);
+    box-shadow: 0 2px 5px 0 rgba(38, 53, 104, 0.25);
 
-  border-radius: 5px;
+    border-radius: 5px;
 
-  &__title {
-    text-align: center;
-    @include MainText('&', $sobank-main-font, 12px, normal, 500, $sobank-dark-text-color);
+    &__title {
+      text-align: center;
+      @include MainText('&', $sobank-main-font, 12px, normal, 500, $sobank-dark-text-color);
+    }
+  }
+
+  &__sobankRedesign {
+    display: none;
   }
 }
 

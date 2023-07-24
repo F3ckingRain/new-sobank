@@ -4,6 +4,7 @@ import styles from './ModalProvider.module.scss';
 
 import MobileMenu from '@/components/MobileMenu/MobileMenu';
 import AuthModal from '@/components/Modals/AuthModal/AuthModal';
+import CityModal from '@/components/Modals/CityModal/CityModal';
 import ShowcaseModal from '@/components/Modals/ShowcaseModal/ShowcaseModal';
 import UnsubscribeModal from '@/components/Modals/UnsubscribeModal/UnsubscribeModal';
 
@@ -14,6 +15,7 @@ const ModalProvider = () => (
       <ShowcaseModal />
       <AuthModal />
       <UnsubscribeModal />
+      <CityModal />
     </Suspense>
   </div>
 );

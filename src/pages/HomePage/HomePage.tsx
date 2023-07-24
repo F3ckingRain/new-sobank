@@ -16,17 +16,21 @@ const HomePage = () => {
   const loanProps = Landing.loan[CURRENT_THEME].home_page;
 
   const bannerWrapperStyle: CSSProperties =
-    CURRENT_THEME === 'sobankRedesign' ? {} : { padding: 0 };
+    CURRENT_THEME === 'sobankRedesign'
+      ? {
+          ...bannerProps.layoutStyle,
+        }
+      : { padding: 0, ...bannerProps.layoutStyle };
 
   return (
     <>
       <Wrapper style={bannerWrapperStyle}>
-        <Banner {...bannerProps} imageStyle={{ right: 3, bottom: 35 }} />
+        <Banner {...bannerProps} />
       </Wrapper>
 
       {!!loanProps.popularProducts && (
         <Wrapper>
-          <PopularProducts list={loanProps.popularProducts} />
+          <PopularProducts list={loanProps.popularProducts.list} />
         </Wrapper>
       )}
 

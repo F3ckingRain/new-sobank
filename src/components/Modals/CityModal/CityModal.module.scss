@@ -1,0 +1,130 @@
+@import "../../../styles/mixins";
+
+.cityModal {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 102px;
+
+  border-radius: 10px;
+
+  transform: translateY(calc(100% + 98px));
+
+  &__active {
+    transform: translateY(0);
+  }
+}
+
+.chooseCity {
+  display: flex;
+  flex-direction: column;
+
+  background-color: $white;
+
+  border-radius: 30px;
+
+  &__header {
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: $redesign-black;
+
+    border-radius: 30px 30px 0 0;
+  }
+
+  &__content {
+    padding: 16px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  &__text {
+    padding-left: 48px;
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    text-align: center;
+
+    @include MainText('&', $redesign-main-font, 20px, 28px, 700, $white)
+  }
+
+  &__exit {
+    margin: 0 16px 0 auto;
+
+    min-width: 32px;
+    height: 32px;
+
+    @include BackgroundImage {
+      background-image: url("../../../assets/MobileMenu/Redesign/closeCityMenu__sobankRedesign.svg");
+    }
+  }
+}
+
+.confirmCity {
+  padding: 16px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  background-color: $white;
+
+  box-shadow:
+          0 8px 10px 0 rgba(157, 177, 189, 0.10),
+          0 6px 30px 0 rgba(157, 177, 189, 0.08),
+          0 16px 24px 0 rgba(157, 177, 189, 0.10);
+
+  &__btns {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  &__city {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+}
+
+.text {
+  @include MainText('&', $redesign-main-font, 16px, 24px, 700, $redesign-black);
+
+  &__colored {
+    color: $redesign-blue_1;
+  }
+}
+
+.btn {
+  width: 100%;
+  height: 40px;
+
+  &__confirm {
+    background-color: $redesign-blue_1;
+  }
+
+  &__change {
+    background-color: $redesign-black;
+  }
+}
+
+@include desktop-width {
+  .cityModal {
+    display: none;
+  }
+}

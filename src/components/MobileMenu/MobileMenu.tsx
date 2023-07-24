@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { CSSProperties, FC, useEffect, useState } from 'react';
 
 import clsx from 'clsx';
 
@@ -46,6 +46,9 @@ const MobileMenu = () => {
   const { viewport } = useAppSelector(state => state.configReducer);
 
   const newDesignMenu = CURRENT_THEME === 'sobankRedesign';
+  const modalContainerStyle: CSSProperties = newDesignMenu
+    ? { zIndex: 200, position: 'fixed' }
+    : {};
 
   const mobileMenuHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
@@ -73,7 +76,7 @@ const MobileMenu = () => {
   return (
     <div
       className={menuOpened ? 'modalContainer' : ''}
-      style={viewport === 'desktop' ? { display: 'none' } : undefined}
+      style={modalContainerStyle}
       onClick={closeMobileMenu}
       aria-hidden
     >

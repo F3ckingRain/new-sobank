@@ -1,4 +1,5 @@
 import bannerCreditCardSobankMobile from '../assets/Banner/Sobank/Mobile/creditCard_mobile.webp';
+import bannerTravelCardMobile from '../assets/Banner/SobankRedesign/Mobile/TravelCard_mobile.webp';
 import kkFavicon from '../assets/Favicons/fav-kk-sobank.ico';
 import onbankFavicon from '../assets/Favicons/onbank.ico';
 import sobankFavicon from '../assets/Favicons/sov.ico';
@@ -33,6 +34,7 @@ export const Landing: LandingType = {
           : 'До 1 000 000 ₽\nОбслуживание 0 ₽*',
         btnText: 'Оформить карту',
         image: bannerCreditCardSobankMobile,
+        imageStyle: { right: 3, bottom: 35 },
       },
       credit_cash: {
         title: 'Кредит\nналичными',
@@ -55,12 +57,18 @@ export const Landing: LandingType = {
     },
     sobankRedesign: {
       home_page: {
+        title: 'Кредитная карта для путешественников Travel',
+        subtitle: 'Ваш надежный попутчик в любых путешествиях',
+        btnText: 'Оформить карту',
+        image: bannerTravelCardMobile,
+      },
+      credit_card: {
         title: '',
         subtitle: '',
         btnText: '',
         image: '',
+        layoutStyle: { backgroundColor: '#e7eff5' },
       },
-      credit_card: { title: '', subtitle: '', btnText: '', image: '' },
       credit_cash: { title: '', subtitle: '', btnText: '', image: '' },
       car_credit: { title: '', subtitle: '', btnText: '', image: '' },
       installment_card: { title: '', subtitle: '', btnText: '', image: '' },
@@ -71,38 +79,40 @@ export const Landing: LandingType = {
   loan: {
     sobank: {
       home_page: {
-        popularProducts: [
-          {
-            title: 'Кредитные\nкарты',
-            subtitle: 'До 160 дней\nбез %',
-            image: 'creditCard',
-          },
-          {
-            title: 'Кредит\nналичными',
-            subtitle: 'Быстрое\nоформление',
-            image: 'creditCash',
-          },
-          {
-            title: 'Карты с\nкэшбэком',
-            subtitle: 'До 30%\nкэшбэка\nна покупки',
-            image: 'cashback',
-          },
-          {
-            title: 'Оформление\nКаско',
-            subtitle: 'Оформите\nКаско по\nнизкой цене',
-            image: 'casko',
-          },
-          {
-            title: 'Вклад с \nвысоким %',
-            subtitle: 'Прибыльная\nставка до 12%',
-            image: 'investment',
-          },
-          {
-            title: 'Ипотека\nот 5%',
-            subtitle: 'Выгодная\nипотека на\nновостройки',
-            image: 'hypothec',
-          },
-        ],
+        popularProducts: {
+          list: [
+            {
+              title: 'Кредитные\nкарты',
+              subtitle: 'До 160 дней\nбез %',
+              image: 'creditCard',
+            },
+            {
+              title: 'Кредит\nналичными',
+              subtitle: 'Быстрое\nоформление',
+              image: 'creditCash',
+            },
+            {
+              title: 'Карты с\nкэшбэком',
+              subtitle: 'До 30%\nкэшбэка\nна покупки',
+              image: 'cashback',
+            },
+            {
+              title: 'Оформление\nКаско',
+              subtitle: 'Оформите\nКаско по\nнизкой цене',
+              image: 'casko',
+            },
+            {
+              title: 'Вклад с \nвысоким %',
+              subtitle: 'Прибыльная\nставка до 12%',
+              image: 'investment',
+            },
+            {
+              title: 'Ипотека\nот 5%',
+              subtitle: 'Выгодная\nипотека на\nновостройки',
+              image: 'hypothec',
+            },
+          ],
+        },
         freeDelivery: {
           title: 'Бесплатная доставка до дома',
           list: [
@@ -126,41 +136,43 @@ export const Landing: LandingType = {
         },
       },
       credit_card: {
-        advantages: [
-          {
-            type: 'limit',
-            title: '1 000 000 ₽',
-            subtitle: 'Максимальный кредитный лимит',
-          },
-          {
-            type: 'period',
-            title: 'До 160 дней без %',
-            subtitle:
-              'Льготный период на покупки, снятие наличных и переводы на другие счета.',
-          },
-          {
-            type: 'delivery',
-            title: 'Бесплатная доставка',
-            subtitle: 'Сегодня или на следующий день',
-          },
-          {
-            type: 'percent',
-            title: 'Беспроцентная рассрочка**',
-            subtitle:
-              'Выберите магазин партнёр и получите беспроцентную рассрочку на любой товар в этом магазине',
-          },
-          {
-            type: 'cashback',
-            title: 'Кэшбэк у партнёров',
-            subtitle: 'Вернём до 30% за покупки у партнёров',
-          },
-          {
-            type: 'refinance',
-            title: 'Рефинансирование',
-            subtitle:
-              'Погасите кредиты в других банках без комиссий и получите до 160 дней без %',
-          },
-        ],
+        advantages: {
+          list: [
+            {
+              type: 'limit',
+              title: '1 000 000 ₽',
+              subtitle: 'Максимальный кредитный лимит',
+            },
+            {
+              type: 'period',
+              title: 'До 160 дней без %',
+              subtitle:
+                'Льготный период на покупки, снятие наличных и переводы на другие счета.',
+            },
+            {
+              type: 'delivery',
+              title: 'Бесплатная доставка',
+              subtitle: 'Сегодня или на следующий день',
+            },
+            {
+              type: 'percent',
+              title: 'Беспроцентная рассрочка**',
+              subtitle:
+                'Выберите магазин партнёр и получите беспроцентную рассрочку на любой товар в этом магазине',
+            },
+            {
+              type: 'cashback',
+              title: 'Кэшбэк у партнёров',
+              subtitle: 'Вернём до 30% за покупки у партнёров',
+            },
+            {
+              type: 'refinance',
+              title: 'Рефинансирование',
+              subtitle:
+                'Погасите кредиты в других банках без комиссий и получите до 160 дней без %',
+            },
+          ],
+        },
       },
       credit_cash: {},
       installment_card: {},

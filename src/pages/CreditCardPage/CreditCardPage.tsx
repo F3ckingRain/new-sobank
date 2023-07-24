@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 
 import Advantages from '@/components/Advantages/Advantages';
 import Banner from '@/components/Banner/Banner';
@@ -10,15 +10,22 @@ const CreditCardPage = () => {
   const bannerProps = Landing.banner[CURRENT_THEME].credit_card;
   const loanProps = Landing.loan[CURRENT_THEME].credit_card;
 
+  const bannerWrapperStyle: CSSProperties =
+    CURRENT_THEME === 'sobankRedesign'
+      ? {
+          ...bannerProps.layoutStyle,
+        }
+      : { padding: 0, ...bannerProps.layoutStyle };
+
   return (
     <>
-      <Wrapper style={{ padding: 0 }}>
+      <Wrapper style={bannerWrapperStyle}>
         <Banner {...bannerProps} imageStyle={{ right: 0, bottom: 35 }} />
       </Wrapper>
 
       {!!loanProps.advantages && (
         <Wrapper>
-          <Advantages list={loanProps.advantages} />
+          <Advantages list={loanProps.advantages.list} />
         </Wrapper>
       )}
       <Wrapper>sfg</Wrapper>

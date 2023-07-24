@@ -4,6 +4,7 @@ import clsx from 'clsx';
 
 import styles from './Exchange.module.scss';
 
+import { CURRENT_THEME } from '@/config/themeConfig';
 import useAppDispatch from '@/hooks/useAppDispatch';
 import { getDateForExchange } from '@/utils/date';
 
@@ -56,10 +57,14 @@ const Exchange = () => {
   ];
 
   return (
-    <div className={styles.exchange}>
-      <div className={styles.exchange__header}>
-        <div className={styles.exchange__title}>Курсы валют</div>
-        <div className={styles.exchange__subtitle}>{getDateForExchange()}</div>
+    <div className={`${styles[`exchange__${CURRENT_THEME}`]}`}>
+      <div className={`${styles[`exchange__${CURRENT_THEME}__header`]}`}>
+        <div className={`${styles[`exchange__${CURRENT_THEME}__title`]}`}>
+          Курсы валют
+        </div>
+        <div className={`${styles[`exchange__${CURRENT_THEME}__subtitle`]}`}>
+          {getDateForExchange()}
+        </div>
       </div>
 
       <div className={styles.content}>

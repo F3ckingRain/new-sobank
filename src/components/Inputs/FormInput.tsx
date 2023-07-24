@@ -4,6 +4,8 @@ import ReactInputMask from 'react-input-mask';
 
 import styles from './Input.module.scss';
 
+import { CURRENT_THEME } from '@/config/themeConfig';
+
 interface FormInputProps {
   value: string;
   id: string;
@@ -69,9 +71,12 @@ const FormInput: FC<FormInputProps> = ({
   }, [value]);
 
   return (
-    <div className={styles.inputContainer} style={containerInputStyle}>
+    <div
+      className={`${styles[`inputContainer__${CURRENT_THEME}`]}`}
+      style={containerInputStyle}
+    >
       {!!label && (
-        <label className={styles.label} htmlFor={id}>
+        <label className={`${styles[`label__${CURRENT_THEME}`]}`} htmlFor={id}>
           {label}
         </label>
       )}
@@ -82,7 +87,7 @@ const FormInput: FC<FormInputProps> = ({
           id={id}
           value={inputValue}
           onInput={changeHandler}
-          className={styles.input}
+          className={`${styles[`input__${CURRENT_THEME}`]}`}
           minLength={minLength}
           alwaysShowMask
           autoComplete={autoComplete || 'off'}
@@ -92,7 +97,7 @@ const FormInput: FC<FormInputProps> = ({
         />
       ) : (
         <input
-          className={styles.input}
+          className={`${styles[`input__${CURRENT_THEME}`]}`}
           id={id}
           value={inputValue}
           autoComplete={autoComplete || 'off'}
@@ -103,7 +108,11 @@ const FormInput: FC<FormInputProps> = ({
         />
       )}
 
-      {status === false && required && errorMessage && <div>{errorMessage}</div>}
+      {status === false && required && errorMessage && (
+        <div className={`${styles[`errorMessage__${CURRENT_THEME}`]}`}>
+          {errorMessage}
+        </div>
+      )}
     </div>
   );
 };

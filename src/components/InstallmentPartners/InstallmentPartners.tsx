@@ -5,6 +5,7 @@ import styles from './InstallmetnPartners.module.scss';
 import installmentPartners, {
   InstallmentProps,
 } from '@/components/InstallmentPartners/data';
+import { CURRENT_THEME } from '@/config/themeConfig';
 import ScrollContainer from '@/containers/ScrollContainer/ScrollContainer';
 
 const InstallmentChildItem: FC<InstallmentProps> = ({ image, title }) => (
@@ -16,8 +17,8 @@ const InstallmentChildItem: FC<InstallmentProps> = ({ image, title }) => (
   </div>
 );
 const InstallmentPartners = () => (
-  <div className={styles.installmentPartners}>
-    <div className={styles.installmentPartners__title}>
+  <div className={`${styles[`installmentPartners__${CURRENT_THEME}`]}`}>
+    <div className={`${styles[`installmentPartners__${CURRENT_THEME}__title`]}`}>
       Рассрочка в магазинах партнёрах
     </div>
 

@@ -1,3 +1,5 @@
+import { CSSProperties } from 'react';
+
 import { THEME } from '@/types/config';
 import { ProductType } from '@/types/product';
 
@@ -13,6 +15,8 @@ export type BannerProps = {
   subtitle: string;
   image: string;
   btnText: string;
+  imageStyle?: CSSProperties;
+  layoutStyle?: CSSProperties;
 };
 
 export type productType =
@@ -32,19 +36,26 @@ export type advantageType =
   | 'refinance';
 
 export type LoanProps = {
-  advantages?: { title: string; subtitle: string; type: advantageType }[];
+  advantages?: {
+    list: { title: string; subtitle: string; type: advantageType }[];
+    layoutStyle?: CSSProperties;
+  };
   popularProducts?: {
-    title: string;
-    subtitle: string;
-    image: productType;
-  }[];
-  freeDelivery?: { title: string; list: string[] };
+    list: {
+      title: string;
+      subtitle: string;
+      image: productType;
+    }[];
+    layoutStyle?: CSSProperties;
+  };
+  freeDelivery?: { title: string; list: string[]; layoutStyle?: CSSProperties };
   freeCard?: {
     title: string;
     subtitle: string;
     image: string;
+    layoutStyle?: string;
   };
-  getCredit?: { title: string; list: string[] };
+  getCredit?: { title: string; list: string[]; layoutStyle?: CSSProperties };
 };
 
 export type socialType = 'viber' | 'vk' | 'telegram';
@@ -67,6 +78,7 @@ export type FooterProps = {
   socials: SocialsProps;
   accordions: AccordionProps[];
   copyright: string;
+  layoutStyle?: CSSProperties;
 };
 
 export type LandingType = {
