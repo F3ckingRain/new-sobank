@@ -30,6 +30,10 @@ const Header = () => {
     dispatch(setModal({ name: 'unsubscribe-modal', opened: true }));
   };
 
+  const cityChangeHandler = () => {
+    dispatch(setModal({ name: 'city-modal', opened: true }));
+  };
+
   return (
     <header className={clsx(styles.header, `${styles[`header__${CURRENT_THEME}`]}`)}>
       <button
@@ -57,7 +61,12 @@ const Header = () => {
       {showNewDesignHeader && (
         <div className={styles.sobankRedesign__container}>
           {showCityChanger ? (
-            <button className={styles.sobankRedesign__cityBtn}>Москва</button>
+            <button
+              className={styles.sobankRedesign__cityBtn}
+              onClick={cityChangeHandler}
+            >
+              Москва
+            </button>
           ) : (
             <Tooltip />
           )}

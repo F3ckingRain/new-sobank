@@ -1,0 +1,28 @@
+@import "../../styles/mixins";
+
+.shortFormContainer {
+  &__sobankRedesign {
+    border-top: 5px solid $redesign-gray-2;
+
+    background-color: $white;
+    box-shadow:
+            0 7px 8px 0 rgba(157, 177, 189, 0.10),
+            0 5px 22px 0 rgba(157, 177, 189, 0.08),
+            0 12px 17px 0 rgba(157, 177, 189, 0.10);
+  }
+}
+
+@include mobile-width {
+  .shortFormContainer {
+    &__sobankRedesign {
+      padding: 24px 16px 40px;
+
+    }
+  }
+}
+
+@include desktop-width {
+  .shortFormContainer {
+
+  }
+}

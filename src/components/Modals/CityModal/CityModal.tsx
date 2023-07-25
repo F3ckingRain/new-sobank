@@ -17,7 +17,7 @@ const CityModal = () => {
 
   const modal = useAppSelector(state => state.modalReducer);
 
-  const isCityModalOpen = true; // modal.opened && modal.name === 'city-modal';
+  const isCityModalOpen = modal.opened && modal.name === 'city-modal';
 
   const modalContainerStyle: CSSProperties =
     cityChooseOpened && isCityModalOpen

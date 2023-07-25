@@ -9,11 +9,14 @@ import OurServices from '@/components/OurServices/OurServices';
 import PopularProducts from '@/components/PopularProducts/PopularProducts';
 import { CURRENT_THEME } from '@/config/themeConfig';
 import Wrapper from '@/containers/Wrapper/Wrapper';
+import ShortFrom from '@/modules/ShortForm/ShortFrom';
 import { Landing } from '@/themes/theme';
 
 const HomePage = () => {
   const bannerProps = Landing.banner[CURRENT_THEME].home_page;
   const loanProps = Landing.loan[CURRENT_THEME].home_page;
+
+  const showShortForm = CURRENT_THEME === 'sobankRedesign';
 
   const bannerWrapperStyle: CSSProperties =
     CURRENT_THEME === 'sobankRedesign'
@@ -27,6 +30,8 @@ const HomePage = () => {
       <Wrapper style={bannerWrapperStyle}>
         <Banner {...bannerProps} />
       </Wrapper>
+
+      {showShortForm && <ShortFrom />}
 
       {!!loanProps.popularProducts && (
         <Wrapper>
