@@ -7,13 +7,11 @@ import styles from './AuthModal.module.scss';
 import AuthWindow from '@/components/AuthWindow/AuthWindow';
 import useAppDispatch from '@/hooks/useAppDispatch';
 import useAppSelector from '@/hooks/useAppSelector';
-import useNavigateWithParams from '@/hooks/useNavigateWithParams';
 import { closeModal } from '@/store/reducers/ModalSlice/ModalSlice';
 import { setPhoneNumber } from '@/store/reducers/UserSlice/UserSlice';
 
 const AuthModal = () => {
   const dispatch = useAppDispatch();
-  const navigate = useNavigateWithParams();
 
   const modal = useAppSelector(state => state.modalReducer);
   const { isAuth, sendingSmsCode, changingPhone, autologinToken } = useAppSelector(
