@@ -9,7 +9,7 @@ import OurServices from '@/components/OurServices/OurServices';
 import PopularProducts from '@/components/PopularProducts/PopularProducts';
 import { CURRENT_THEME } from '@/config/themeConfig';
 import Wrapper from '@/containers/Wrapper/Wrapper';
-import ShortFrom from '@/modules/ShortForm/ShortFrom';
+import { ShortFrom } from '@/modules/ShortForm/index';
 import { Landing } from '@/themes/theme';
 
 const HomePage = () => {

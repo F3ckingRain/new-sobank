@@ -24,15 +24,6 @@
 
     scale: 1;
   }
-
-  &__content {
-    width: 90%;
-
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
-  }
 }
 
 .closeBtn {
@@ -78,80 +69,11 @@
   }
 }
 
-.content {
-
-  &__phoneTitle {
-    width: 100%;
-
-    text-align: center;
-  }
-
-  &__changePhoneBtn {
-    margin-top: 16px;
-
-    background-color: transparent;
-
-    text-align: start;
-    font-family: $sobank-support-font;
-    color: $sobank-light-blue-color;
-  }
-}
-
-.codeBlock {
-  margin-top: 20px;
-
-  width: 100%;
-
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 4px;
-
-  &__label {
-    width: 100%;
-
-    text-align: center;
-    font-family: $sobank-support-font;
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 17px;
-  }
-}
-
-.sendCodeBtn {
-  margin-top: 8px;
-
-  color: $sobank-light-blue-color;
-  font-family: $sobank-support-font;
-  white-space: pre-wrap;
-
-  &__active {
-    margin-top: 12px;
-
-    cursor: pointer;
-  }
-}
-
 @include mobile-width {
   .authModal {
     box-sizing: border-box;
 
     max-width: calc(100% - 40px);
-  }
-
-  .content {
-
-    &__phoneTitle {
-      @include MainText('&', $sobank-main-font, 12px, normal, 500, $sobank-dark-text-color);
-    }
-
-    &__changingPhoneBtn {
-      font-size: 13px;
-    }
-  }
-
-  .sendCodeBtn {
-    font-size: 12px;
   }
 }
 
@@ -167,20 +89,5 @@
       rotate: 360deg;
       transition: rotate .5s ease-in-out;
     }
-  }
-
-  .content {
-
-    &__phoneTitle {
-      @include MainText('&', $sobank-main-font, 12px, normal, 500, $sobank-dark-text-color);
-    }
-
-    &__changingPhoneBtn {
-      font-size: inherit;
-    }
-  }
-
-  .sendCodeBtn {
-    font-size: inherit;
   }
 }

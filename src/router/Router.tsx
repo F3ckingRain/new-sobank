@@ -9,7 +9,7 @@ import ApplicationPage from '@/pages/ApplicationPage/ApplicationPage';
 import CreditCardPage from '@/pages/CreditCardPage/CreditCardPage';
 import CreditCashPage from '@/pages/CreditCashPage/CreditCashPage';
 import DocumentsPage from '@/pages/DocumentsPage/DocumentsPage';
-import CreditParameters from '@/pages/Form/CreditParameters/CreditParameters';
+import CreditParametersPage from '@/pages/Form/CreditParametersPage/CreditParametersPage';
 import HomePage from '@/pages/HomePage/HomePage';
 import NotFoundPage from '@/pages/NotFoundPage/NotFoundPage';
 import ProfilePage from '@/pages/ProfilePage/ProfilePage';
@@ -40,7 +40,10 @@ const Router = () =>
           path: ':mode',
           element: <FormLayout />,
           children: [
-            { path: ':product/credit_parameters_info', element: <CreditParameters /> },
+            {
+              path: ':product/credit_parameters_info',
+              element: <CreditParametersPage />,
+            },
           ],
         },
       ],

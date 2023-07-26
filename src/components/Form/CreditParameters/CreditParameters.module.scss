@@ -1,0 +1,23 @@
+@import "../../../styles/mixins";
+
+.creditParameters {
+  &__sobankRedesign {
+
+  }
+}
+
+@include mobile-width {
+  .creditParameters {
+    &__sobankRedesign {
+
+    }
+  }
+}
+
+@include desktop-width {
+  .creditParameters {
+    &__sobankRedesign {
+
+    }
+  }
+}

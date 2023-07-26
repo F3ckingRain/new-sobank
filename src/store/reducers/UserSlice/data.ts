@@ -2,6 +2,12 @@ import Cookies from 'js-cookie';
 
 import { Nullable } from '@/types/default';
 
+export type CurrentStepType =
+  | 'credit_parameters_info'
+  | 'work_info'
+  | 'additional_info'
+  | 'passport_info';
+
 interface UserType {
   isAuth: boolean;
   phoneNumber: string;
@@ -10,11 +16,7 @@ interface UserType {
   changingPhone: boolean;
   errorMessage: string;
   autologinToken: Nullable<string>;
-  currentStep:
-    | 'credit_parameters_info'
-    | 'work_info'
-    | 'additional_info'
-    | 'passport_info';
+  currentStep: CurrentStepType;
 }
 
 const initialState: UserType = {

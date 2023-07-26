@@ -1,0 +1,138 @@
+@import "../../styles/mixins";
+
+.authWindow {
+  &__sobank {
+    width: 90%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+
+    &__phone {
+      width: 100%;
+
+      text-align: center;
+    }
+
+    &__changePhoneBtn {
+      margin-top: 16px;
+
+      background-color: transparent;
+
+      text-align: start;
+      font-family: $sobank-support-font;
+      color: $sobank-light-blue-color;
+    }
+  }
+
+  &__sobankRedesign {
+
+  }
+}
+
+.codeBlock {
+  &__sobank {
+    margin-top: 20px;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+
+    &__label {
+      width: 100%;
+
+      text-align: center;
+      font-family: $sobank-support-font;
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 17px;
+    }
+  }
+
+  &__sobankRedesign {
+
+  }
+}
+
+.sendCodeBtn {
+  &__sobank {
+    margin-top: 8px;
+
+    color: $sobank-light-blue-color;
+    font-family: $sobank-support-font;
+    white-space: pre-wrap;
+
+    &__active {
+      margin-top: 12px;
+
+      cursor: pointer;
+    }
+  }
+
+  &__sobankRedesign {
+
+  }
+}
+
+
+@include mobile-width {
+  .authWindow {
+    &__sobank {
+
+      &__phone {
+        @include MainText('&', $sobank-main-font, 12px, normal, 500, $sobank-dark-text-color);
+      }
+
+      &__changingPhoneBtn {
+        font-size: 13px;
+      }
+    }
+
+    &__sobankRedesign {
+
+    }
+  }
+
+  .sendCodeBtn {
+    &__sobank {
+      font-size: 12px;
+    }
+
+    &__sobankRedesign {
+
+    }
+  }
+}
+
+@include desktop-width {
+  .authWindow {
+    &__sobank {
+
+      &__phone {
+        @include MainText('&', $sobank-main-font, 12px, normal, 500, $sobank-dark-text-color);
+      }
+
+      &__changingPhoneBtn {
+        font-size: inherit;
+      }
+    }
+
+    &__sobankRedesign {
+
+    }
+  }
+
+  .sendCodeBtn {
+    &__sobank {
+      font-size: inherit;
+    }
+
+    &__sobankRedesign {
+
+    }
+  }
+}

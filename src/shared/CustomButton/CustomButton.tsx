@@ -11,6 +11,7 @@ export interface CustomButtonProps {
   onClick?: () => void;
   style?: CSSProperties;
   additionalClassname?: string;
+  type?: 'button' | 'submit' | 'reset';
 }
 
 const CustomButton: FC<CustomButtonProps> = ({
@@ -18,9 +19,10 @@ const CustomButton: FC<CustomButtonProps> = ({
   onClick,
   style,
   additionalClassname,
+  type = 'button',
 }) => (
   <button
-    type="button"
+    type={type}
     className={clsx(`${styles[`button__${CURRENT_THEME}`]}`, additionalClassname)}
     style={style}
     onClick={onClick}

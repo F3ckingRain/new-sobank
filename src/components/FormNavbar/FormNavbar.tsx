@@ -1,5 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-const FormNavbar = () => <div>s</div>;
+import { CurrentStepType } from '@/store/reducers/UserSlice/data';
+
+interface FormNavbarProps {
+  currentStep: CurrentStepType;
+}
+const FormNavbar: FC<FormNavbarProps> = ({ currentStep }) => <div>s</div>;
 
 export default FormNavbar;

@@ -1,4 +1,4 @@
-import React, { CSSProperties, useEffect } from 'react';
+import React, { CSSProperties, FC, useEffect } from 'react';
 
 import FormInput from '@/components/Inputs/FormInput';
 import { ConfirmCode } from '@/features/AuthFeature';
@@ -6,7 +6,11 @@ import useAppDispatch from '@/hooks/useAppDispatch';
 import useAppSelector from '@/hooks/useAppSelector';
 import { resetMask } from '@/utils/validation';
 
-const CodeInput = () => {
+interface CodeInputProps {
+  callback?: () => void;
+}
+
+const CodeInput: FC<CodeInputProps> = ({ callback }) => {
   const dispatch = useAppDispatch();
 
   const { phoneNumber, code, errorMessage } = useAppSelector(state => state.userReducer);
@@ -20,7 +24,14 @@ const CodeInput = () => {
     const unmaskedValue = resetMask(value);
 
     if (unmaskedValue.length === 4) {
-      dispatch(ConfirmCode({ code: unmaskedValue, phone: phoneNumber }));
+      if (callback) {
+        try {
+          dispatch(ConfirmCode({ code: unmaskedValue, phone: phoneNumber }));
+          callback();
+        } catch {
+          console.log('Не удалось отправить данные');
+        }
+      } else dispatch(ConfirmCode({ code: unmaskedValue, phone: phoneNumber }));
     }
   };
 

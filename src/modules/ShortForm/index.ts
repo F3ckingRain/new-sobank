@@ -1,1 +1,3 @@
-export * from '@/modules/ShortForm/ShortFrom';
+import ShortFrom from '@/modules/ShortForm/ShortFrom';
+
+export { ShortFrom };

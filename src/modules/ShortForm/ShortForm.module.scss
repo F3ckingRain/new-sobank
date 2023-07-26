@@ -12,11 +12,65 @@
   }
 }
 
+.scrollWindow {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+
+  transition: translate .5s ease-in-out;
+
+  overflow-x: hidden;
+
+  &__item {
+    flex: 1 1 0;
+
+    min-width: 100%;
+
+    box-sizing: border-box;
+  }
+}
+
+.buttons {
+  &__sobank {
+
+  }
+
+  &__sobankRedesign {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
 @include mobile-width {
   .shortFormContainer {
     &__sobankRedesign {
       padding: 24px 16px 40px;
 
+    }
+  }
+
+  .buttons {
+    &__sobank {
+
+    }
+
+    &__sobankRedesign {
+      width: 100%;
+
+      gap: 8px;
+
+      &__btn {
+        width: 100%;
+      }
+
+      &__reset {
+        background-color: $redesign-black
+      }
     }
   }
 }

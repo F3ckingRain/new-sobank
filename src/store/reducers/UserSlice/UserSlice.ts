@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import Cookies from 'js-cookie';
 
-import initialState from '@/store/reducers/UserSlice/data';
+import initialState, { CurrentStepType } from '@/store/reducers/UserSlice/data';
 
 export const userSlice = createSlice({
   name: 'user',
@@ -32,6 +32,9 @@ export const userSlice = createSlice({
     setAutologinToken(state, { payload }: PayloadAction<string>) {
       state.autologinToken = payload;
     },
+    setCurrentStep(state, { payload }: PayloadAction<CurrentStepType>) {
+      state.currentStep = payload;
+    },
   },
 });
 
@@ -44,5 +47,6 @@ export const {
   setChangingPhone,
   setErrorMessage,
   setSendingSms,
+  setCurrentStep,
 } = userSlice.actions;
 export default userSlice.reducer;
