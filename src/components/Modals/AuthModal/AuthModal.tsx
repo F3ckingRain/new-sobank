@@ -5,6 +5,7 @@ import clsx from 'clsx';
 import styles from './AuthModal.module.scss';
 
 import AuthWindow from '@/components/AuthWindow/AuthWindow';
+import { CURRENT_THEME } from '@/config/themeConfig';
 import useAppDispatch from '@/hooks/useAppDispatch';
 import useAppSelector from '@/hooks/useAppSelector';
 import { closeModal } from '@/store/reducers/ModalSlice/ModalSlice';
@@ -36,13 +37,20 @@ const AuthModal = () => {
       <div
         className={
           isAuthModalOpened
-            ? clsx(styles.authModal, styles.authModal__active)
+            ? clsx(
+                `${styles[`authModal__${CURRENT_THEME}`]}`,
+                `${styles[`authModal__${CURRENT_THEME}__active`]}`,
+              )
             : styles.authModal
         }
         onClick={event => event.stopPropagation()}
         aria-hidden
       >
-        <button className={styles.closeBtn} type="button" onClick={closeModalHandler} />
+        <button
+          className={`${styles[`closeBtn__${CURRENT_THEME}`]}`}
+          type="button"
+          onClick={closeModalHandler}
+        />
 
         <AuthWindow
           changingPhone={changingPhone}

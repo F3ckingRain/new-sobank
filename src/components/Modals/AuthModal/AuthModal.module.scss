@@ -1,93 +1,121 @@
 @import "../../../styles/mixins";
 
 .authModal {
-  padding: 30px;
+  &__sobank {
+    padding: 30px;
 
-  position: fixed;
+    position: fixed;
 
-  width: 100%;
+    width: 100%;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  border-radius: 5px;
-
-  background-color: $white;
-  box-shadow: rgba(0, 0, 0, 0.4) 0 0 100px;
-
-  scale: 0;
-
-  &__active {
-    position: relative;
-
-    scale: 1;
-  }
-}
-
-.closeBtn {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 25px;
-  height: 25px;
-
-  border-radius: 50%;
-
-  background-color: $sobank-light-gray-color;
-
-  rotate: 0;
-  transition: rotate .5s ease-in-out;
-
-  &:before, &:after {
-    content: '';
-
-    position: absolute;
-
-    width: 15px;
-    height: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     border-radius: 5px;
 
     background-color: $white;
+
+    box-shadow: rgba(0, 0, 0, 0.4) 0 0 100px;
+    box-sizing: border-box;
+
+    scale: 0;
+
+    &__active {
+      position: relative;
+
+      scale: 1;
+    }
   }
 
-  &:before {
-    margin-left: auto;
+  &__sobankRedesign {
 
-    rotate: 45deg;
+  }
+}
+
+.closeBtn {
+  &__sobank {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 25px;
+    height: 25px;
+
+    border-radius: 50%;
+
+    background-color: $sobank-light-gray-color;
+
+    rotate: 0;
+    transition: rotate .5s ease-in-out;
+
+    &:before, &:after {
+      content: '';
+
+      position: absolute;
+
+      width: 15px;
+      height: 2px;
+
+      border-radius: 5px;
+
+      background-color: $white;
+    }
+
+    &:before {
+      margin-left: auto;
+
+      rotate: 45deg;
+    }
+
+    &:after {
+      rotate: -45deg;
+    }
   }
 
-  &:after {
-    rotate: -45deg;
+  &__sobankRedesign {
+
   }
 }
 
 @include mobile-width {
   .authModal {
-    box-sizing: border-box;
+    &__sobank {
+      box-sizing: border-box;
 
-    max-width: calc(100% - 40px);
+      max-width: 90%
+    }
+
+    &__sobankRedesign {
+
+    }
   }
 }
 
 @include desktop-width {
   .authModal {
-    max-width: 400px;
+    &__sobank {
+      max-width: 400px;
+    }
   }
 
   .closeBtn {
-    cursor: pointer;
+    &__sobank {
+      cursor: pointer;
 
-    &:hover {
-      rotate: 360deg;
-      transition: rotate .5s ease-in-out;
+      &:hover {
+        rotate: 360deg;
+        transition: rotate .5s ease-in-out;
+      }
+    }
+
+    &__sobankRedesign {
+
     }
   }
 }

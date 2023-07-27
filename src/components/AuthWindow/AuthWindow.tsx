@@ -59,7 +59,7 @@ const AuthWindow: FC<AuthWindowProps> = ({
       {sendingSmsCode && (
         <div className={`${styles[`codeBlock__${CURRENT_THEME}`]}`}>
           <div className={`${styles[`codeBlock__${CURRENT_THEME}__label`]}`}>
-            Введите код подтверждение из смс
+            Введите код подтверждение из СМС
           </div>
 
           <CodeInput callback={callback} />

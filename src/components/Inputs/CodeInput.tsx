@@ -15,9 +15,12 @@ const CodeInput: FC<CodeInputProps> = ({ callback }) => {
 
   const { phoneNumber, code, errorMessage } = useAppSelector(state => state.userReducer);
 
+  const containerStyle: CSSProperties = {};
+
   const inputStyle: CSSProperties = {
     textAlign: 'center',
     letterSpacing: 5,
+    backgroundColor: '#fff',
   };
 
   const codeHandler = (value: string) => {
@@ -48,6 +51,7 @@ const CodeInput: FC<CodeInputProps> = ({ callback }) => {
       onChange={codeHandler}
       id="sms-code-input"
       inputStyle={inputStyle}
+      containerInputStyle={containerStyle}
       errorMessage={errorMessage}
       autoFocus
     />

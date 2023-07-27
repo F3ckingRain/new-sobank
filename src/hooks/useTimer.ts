@@ -19,20 +19,25 @@ export const useTimer = ({ initTimer, reset, paused }: TimerType): TimerDataType
   const [minutes, setMinutes] = useState<string>('');
   const [seconds, setSeconds] = useState<string>('');
 
+  console.log(minutes, time);
+
   useEffect(() => {
     setTime(initTimer);
   }, [initTimer]);
 
   useEffect(() => {
     if (reset) setTime(initTimer);
-    if (time > 0 && !paused) {
-      const handler = setInterval(() => {
-        setTime(prevState => prevState - 1);
-      }, 1000);
+    if (!paused && time > 0) {
+      const handler = setInterval(
+        () =>
+          setTime(prevState => {
+            if (prevState > 0) return prevState - 1;
+            return prevState;
+          }),
+        1000,
+      );
 
-      return () => {
-        clearInterval(handler);
-      };
+      if (time === 0) clearInterval(handler);
     }
 
     return () => undefined;

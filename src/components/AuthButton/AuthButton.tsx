@@ -30,9 +30,9 @@ const AuthButton: FC<CustomButtonProps> = ({
   };
 
   const clickHandler = () => {
-    if (!showcase) {
-      showCaseHandler();
-    }
+    // if (!showcase) {
+    //   showCaseHandler();
+    // }
     if (onClick) {
       return onClick();
     }
